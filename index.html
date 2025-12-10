@@ -383,6 +383,8 @@
         let flowsData = [];
         let allImageCards = [];
         let renderedFlows = new Set(); // Track which flows have been rendered
+        let currentFlowIndex = 0; // Track current flow for infinite scroll
+        let isLoadingFlow = false; // Prevent multiple simultaneous loads
         
         // Function to create a slug from full_title for IDs
         function slugify(text) {
@@ -411,6 +413,57 @@
             // Render first flow by default
             if (flowsData.length > 0) {
                 renderFlow(flowsData[0]);
+                currentFlowIndex = 0;
+            }
+            
+            // Set up infinite scroll
+            setupInfiniteScroll();
+        }
+        
+        // Set up infinite scroll
+        function setupInfiniteScroll() {
+            let scrollTimeout;
+            
+            window.addEventListener('scroll', function() {
+                // Debounce scroll events
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    checkAndLoadNextFlow();
+                }, 100);
+            });
+        }
+        
+        // Check if we should load the next flow
+        function checkAndLoadNextFlow() {
+            if (isLoadingFlow) return;
+            
+            // Check if we're near the bottom of the page
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const pageHeight = document.documentElement.scrollHeight;
+            const threshold = 800; // Load next flow when 800px from bottom
+            
+            if (scrollPosition >= pageHeight - threshold) {
+                loadNextFlow();
+            }
+        }
+        
+        // Load the next flow in sequence
+        function loadNextFlow() {
+            if (isLoadingFlow) return;
+            
+            const nextIndex = currentFlowIndex + 1;
+            
+            if (nextIndex < flowsData.length) {
+                isLoadingFlow = true;
+                const nextFlow = flowsData[nextIndex];
+                
+                renderFlow(nextFlow, false); // Don't scroll to it
+                currentFlowIndex = nextIndex;
+                
+                // Reset loading flag after a short delay
+                setTimeout(() => {
+                    isLoadingFlow = false;
+                }, 300);
             }
         }
         
@@ -430,15 +483,17 @@
         }
         
         // Render a single flow section
-        function renderFlow(flow) {
+        function renderFlow(flow, shouldScroll = true) {
             const flowId = slugify(flow.full_title);
             
             // Check if flow is already rendered
             if (renderedFlows.has(flowId)) {
-                // Scroll to existing section
-                const existingSection = document.getElementById(flowId);
-                if (existingSection) {
-                    existingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Scroll to existing section if requested
+                if (shouldScroll) {
+                    const existingSection = document.getElementById(flowId);
+                    if (existingSection) {
+                        existingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 }
                 return;
             }
@@ -497,10 +552,12 @@
             // Re-initialize image modal to include new cards
             initializeImageModal();
             
-            // Scroll to the new section
-            setTimeout(() => {
-                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 50);
+            // Scroll to the new section if requested
+            if (shouldScroll) {
+                setTimeout(() => {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 50);
+            }
         }
         
         // Update stats
@@ -543,7 +600,8 @@
                     const flow = flowsData[flowIndex];
                     
                     if (flow) {
-                        renderFlow(flow);
+                        renderFlow(flow, true); // Scroll to clicked flow
+                        currentFlowIndex = flowIndex; // Update current index
                     }
                     
                     // Close sidebar on mobile

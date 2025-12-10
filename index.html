@@ -354,19 +354,19 @@
     </div>
     
     <div class="main-wrapper">
-        <header class="header">
-            <h1>Fey Web UI Flows</h1>
-            <div class="stats">
-                <span>53 flows</span>
-                <span>·</span>
-                <span>238 screens</span>
-            </div>
-        </header>
-        
+    <header class="header">
+        <h1>Fey Web UI Flows</h1>
+        <div class="stats">
+            <span>53 flows</span>
+            <span>·</span>
+            <span>238 screens</span>
+        </div>
+    </header>
+    
         <main class="container" id="mainContent">
             <!-- Flow sections will be generated dynamically -->
         </main>
-    </div>
+                    </div>
     
     <!-- Modal for full-size viewing -->
     <div class="modal" id="imageModal">
@@ -375,10 +375,11 @@
         <button class="modal-nav modal-nav-next" onclick="navigateImage(1)" type="button">›</button>
         <img class="modal-content" id="modalImage" alt="Full size image">
         <div class="modal-counter" id="modalCounter"></div>
-    </div>
-    
+                </div>
+            
+    <script src="flows.js"></script>
     <script>
-        // Load and render flows from JSON
+        // Load and render flows from flows.js
         let flowsData = [];
         let allImageCards = [];
         
@@ -392,19 +393,20 @@
                 .trim();
         }
         
-        // Load JSON and render
-        async function loadFlows() {
-            try {
-                const response = await fetch('flows_catalog.json');
-                flowsData = await response.json();
-                
-                renderSidebar();
-                renderFlows();
-                updateStats();
-                initializeNavigation();
-            } catch (error) {
-                console.error('Error loading flows:', error);
+        // Load flows from flows.js and render
+        function loadFlows() {
+            // flows.js assigns data to window.flowsData
+            flowsData = window.flowsData || [];
+            
+            if (flowsData.length === 0) {
+                console.error('Error: flowsData not loaded from flows.js');
+                return;
             }
+            
+            renderSidebar();
+            renderFlows();
+            updateStats();
+            initializeNavigation();
         }
         
         // Render sidebar navigation
@@ -557,92 +559,92 @@
         
         // Initialize image modal functionality
         function initializeImageModal() {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            const modalCounter = document.getElementById('modalCounter');
-            let currentImageIndex = 0;
-            
-            function openModal(index) {
-                currentImageIndex = index;
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalCounter = document.getElementById('modalCounter');
+        let currentImageIndex = 0;
+        
+        function openModal(index) {
+            currentImageIndex = index;
                 const card = allImageCards[index];
-                const imgUrl = card.getAttribute('data-img-url');
-                const imgAlt = card.getAttribute('data-img-alt');
-                
-                modalImg.src = imgUrl;
-                modalImg.alt = imgAlt;
+            const imgUrl = card.getAttribute('data-img-url');
+            const imgAlt = card.getAttribute('data-img-alt');
+            
+            modalImg.src = imgUrl;
+            modalImg.alt = imgAlt;
                 modal.classList.add('active');
                 updateModalNav();
                 updateModalCounter();
             }
             
             function updateModalNav() {
-                const prevBtn = document.querySelector('.modal-nav-prev');
-                const nextBtn = document.querySelector('.modal-nav-next');
-                
-                if (currentImageIndex === 0) {
-                    prevBtn.classList.add('disabled');
-                } else {
-                    prevBtn.classList.remove('disabled');
-                }
-                
-                if (currentImageIndex === allImageCards.length - 1) {
-                    nextBtn.classList.add('disabled');
-                } else {
-                    nextBtn.classList.remove('disabled');
-                }
+            const prevBtn = document.querySelector('.modal-nav-prev');
+            const nextBtn = document.querySelector('.modal-nav-next');
+            
+            if (currentImageIndex === 0) {
+                prevBtn.classList.add('disabled');
+            } else {
+                prevBtn.classList.remove('disabled');
             }
+            
+                if (currentImageIndex === allImageCards.length - 1) {
+                nextBtn.classList.add('disabled');
+            } else {
+                nextBtn.classList.remove('disabled');
+            }
+        }
             
             function updateModalCounter() {
                 modalCounter.textContent = `${currentImageIndex + 1} / ${allImageCards.length}`;
             }
-            
-            // Navigate to next/previous image
-            function navigateImage(direction) {
-                const newIndex = currentImageIndex + direction;
+        
+        // Navigate to next/previous image
+        function navigateImage(direction) {
+            const newIndex = currentImageIndex + direction;
                 if (newIndex >= 0 && newIndex < allImageCards.length) {
-                    openModal(newIndex);
-                }
+                openModal(newIndex);
             }
-            
-            // Close modal
-            function closeModal() {
-                modal.classList.remove('active');
-            }
+        }
+        
+        // Close modal
+        function closeModal() {
+            modal.classList.remove('active');
+        }
             
             // Make functions available globally
             window.navigateImage = navigateImage;
             window.closeModal = closeModal;
-            
-            // Add click listeners to image cards
+        
+        // Add click listeners to image cards
             allImageCards.forEach((card, index) => {
-                card.addEventListener('click', function() {
-                    openModal(index);
-                });
+            card.addEventListener('click', function() {
+                openModal(index);
             });
+        });
+        
+        // Close modal on click outside image
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (!modal.classList.contains('active')) return;
             
-            // Close modal on click outside image
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
+            switch(e.key) {
+                case 'Escape':
                     closeModal();
-                }
-            });
-            
-            // Keyboard navigation
-            document.addEventListener('keydown', function(e) {
-                if (!modal.classList.contains('active')) return;
-                
-                switch(e.key) {
-                    case 'Escape':
-                        closeModal();
-                        break;
-                    case 'ArrowLeft':
-                        navigateImage(-1);
-                        break;
-                    case 'ArrowRight':
-                        navigateImage(1);
-                        break;
-                }
-            });
+                    break;
+                case 'ArrowLeft':
+                    navigateImage(-1);
+                    break;
+                case 'ArrowRight':
+                    navigateImage(1);
+                    break;
+            }
+        });
         }
         
         // Load flows when page loads

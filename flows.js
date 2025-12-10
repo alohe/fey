@@ -1,0 +1,1679 @@
+const flows = [
+    {
+      "flow_id": "1328af10-c914-4e4b-bc85-46a057d3a81a",
+      "flow_title": "Onboarding",
+      "app_name": "Fey Web",
+      "full_title": "Onboarding in Fey Web",
+      "flow_url": "https://mobbin.com/flows/1328af10-c914-4e4b-bc85-46a057d3a81a",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_001_1328af10/screen_02.jpg",
+          "alt": "Screen 1 of 15 of the Onboarding flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_001_1328af10/screen_03.jpg",
+          "alt": "Screen 2 of 15 of the Onboarding flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_001_1328af10/screen_04.jpg",
+          "alt": "Screen 3 of 15 of the Onboarding flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_001_1328af10/screen_05.jpg",
+          "alt": "Screen 4 of 15 of the Onboarding flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_001_1328af10/screen_06.jpg",
+          "alt": "Screen 5 of 15 of the Onboarding flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_07.jpg",
+          "local_path": "images/flow_001_1328af10/screen_07.jpg",
+          "alt": "Screen 6 of 15 of the Onboarding flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_08.jpg",
+          "local_path": "images/flow_001_1328af10/screen_08.jpg",
+          "alt": "Screen 7 of 15 of the Onboarding flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_09.jpg",
+          "local_path": "images/flow_001_1328af10/screen_09.jpg",
+          "alt": "Screen 8 of 15 of the Onboarding flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_10.jpg",
+          "local_path": "images/flow_001_1328af10/screen_10.jpg",
+          "alt": "Screen 9 of 15 of the Onboarding flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_11.jpg",
+          "local_path": "images/flow_001_1328af10/screen_11.jpg",
+          "alt": "Screen 10 of 15 of the Onboarding flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_12.jpg",
+          "local_path": "images/flow_001_1328af10/screen_12.jpg",
+          "alt": "Screen 11 of 15 of the Onboarding flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_13.jpg",
+          "local_path": "images/flow_001_1328af10/screen_13.jpg",
+          "alt": "Screen 12 of 15 of the Onboarding flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_14.jpg",
+          "local_path": "images/flow_001_1328af10/screen_14.jpg",
+          "alt": "Screen 13 of 15 of the Onboarding flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_15.jpg",
+          "local_path": "images/flow_001_1328af10/screen_15.jpg",
+          "alt": "Screen 14 of 15 of the Onboarding flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_16.jpg",
+          "local_path": "images/flow_001_1328af10/screen_16.jpg",
+          "alt": "Screen 15 of 15 of the Onboarding flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "4a047c92-7ac8-457b-ad67-3616a4e56f84",
+      "flow_title": "Starting a trial",
+      "app_name": "Fey Web",
+      "full_title": "Starting a trial in Fey Web",
+      "flow_url": "https://mobbin.com/flows/4a047c92-7ac8-457b-ad67-3616a4e56f84",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_002_4a047c92/screen_02.jpg",
+          "alt": "Screen 1 of 6 of the Starting a trial flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_002_4a047c92/screen_03.jpg",
+          "alt": "Screen 2 of 6 of the Starting a trial flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_002_4a047c92/screen_04.jpg",
+          "alt": "Screen 3 of 6 of the Starting a trial flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_002_4a047c92/screen_05.jpg",
+          "alt": "Screen 4 of 6 of the Starting a trial flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_002_4a047c92/screen_06.jpg",
+          "alt": "Screen 5 of 6 of the Starting a trial flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_07.jpg",
+          "local_path": "images/flow_002_4a047c92/screen_07.jpg",
+          "alt": "Screen 6 of 6 of the Starting a trial flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "e78d4296-df8e-4353-b025-53ea549eae56",
+      "flow_title": "Home",
+      "app_name": "Fey Web",
+      "full_title": "Home in Fey Web",
+      "flow_url": "https://mobbin.com/flows/e78d4296-df8e-4353-b025-53ea549eae56",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_003_e78d4296/screen_02.jpg",
+          "alt": "Screen 1 of 3 of the Home flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_003_e78d4296/screen_03.jpg",
+          "alt": "Screen 2 of 3 of the Home flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_003_e78d4296/screen_04.jpg",
+          "alt": "Screen 3 of 3 of the Home flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "62c615eb-b8b9-465b-a12f-0c7c8e17f98d",
+      "flow_title": "Markets",
+      "app_name": "Fey Web",
+      "full_title": "Markets in Fey Web",
+      "flow_url": "https://mobbin.com/flows/62c615eb-b8b9-465b-a12f-0c7c8e17f98d",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_004_62c615eb/screen_02.jpg",
+          "alt": "Screen 1 of 2 of the Markets flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_004_62c615eb/screen_03.jpg",
+          "alt": "Screen 2 of 2 of the Markets flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "19cf6237-3d0e-4a52-b549-435df6017f5a",
+      "flow_title": "Stock detail",
+      "app_name": "Fey Web",
+      "full_title": "Stock detail in Fey Web",
+      "flow_url": "https://mobbin.com/flows/19cf6237-3d0e-4a52-b549-435df6017f5a",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_005_19cf6237/screen_02.jpg",
+          "alt": "Screen 1 of 10 of the Stock detail flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_005_19cf6237/screen_03.jpg",
+          "alt": "Screen 2 of 10 of the Stock detail flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_005_19cf6237/screen_04.jpg",
+          "alt": "Screen 3 of 10 of the Stock detail flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_005_19cf6237/screen_05.jpg",
+          "alt": "Screen 4 of 10 of the Stock detail flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_005_19cf6237/screen_06.jpg",
+          "alt": "Screen 5 of 10 of the Stock detail flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_07.jpg",
+          "local_path": "images/flow_005_19cf6237/screen_07.jpg",
+          "alt": "Screen 6 of 10 of the Stock detail flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_08.jpg",
+          "local_path": "images/flow_005_19cf6237/screen_08.jpg",
+          "alt": "Screen 7 of 10 of the Stock detail flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_09.jpg",
+          "local_path": "images/flow_005_19cf6237/screen_09.jpg",
+          "alt": "Screen 8 of 10 of the Stock detail flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_10.jpg",
+          "local_path": "images/flow_005_19cf6237/screen_10.jpg",
+          "alt": "Screen 9 of 10 of the Stock detail flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_11.jpg",
+          "local_path": "images/flow_005_19cf6237/screen_11.jpg",
+          "alt": "Screen 10 of 10 of the Stock detail flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "0199b8b4-f89b-497a-a8f4-4ab5950a33f9",
+      "flow_title": "Analyzing a stock",
+      "app_name": "Fey Web",
+      "full_title": "Analyzing a stock in Fey Web",
+      "flow_url": "https://mobbin.com/flows/0199b8b4-f89b-497a-a8f4-4ab5950a33f9",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_006_0199b8b4/screen_02.jpg",
+          "alt": "Screen 1 of 6 of the Analyzing a stock flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_006_0199b8b4/screen_03.jpg",
+          "alt": "Screen 2 of 6 of the Analyzing a stock flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_006_0199b8b4/screen_04.jpg",
+          "alt": "Screen 3 of 6 of the Analyzing a stock flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_006_0199b8b4/screen_05.jpg",
+          "alt": "Screen 4 of 6 of the Analyzing a stock flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_006_0199b8b4/screen_06.jpg",
+          "alt": "Screen 5 of 6 of the Analyzing a stock flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_07.jpg",
+          "local_path": "images/flow_006_0199b8b4/screen_07.jpg",
+          "alt": "Screen 6 of 6 of the Analyzing a stock flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "f8df8760-bd5d-4758-ae00-74fa1d63703e",
+      "flow_title": "Comparing stock metrics",
+      "app_name": "Fey Web",
+      "full_title": "Comparing stock metrics in Fey Web",
+      "flow_url": "https://mobbin.com/flows/f8df8760-bd5d-4758-ae00-74fa1d63703e",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_007_f8df8760/screen_02.jpg",
+          "alt": "Screen 1 of 7 of the Comparing stock metrics flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_007_f8df8760/screen_03.jpg",
+          "alt": "Screen 2 of 7 of the Comparing stock metrics flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_007_f8df8760/screen_04.jpg",
+          "alt": "Screen 3 of 7 of the Comparing stock metrics flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_007_f8df8760/screen_05.jpg",
+          "alt": "Screen 4 of 7 of the Comparing stock metrics flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_007_f8df8760/screen_06.jpg",
+          "alt": "Screen 5 of 7 of the Comparing stock metrics flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_07.jpg",
+          "local_path": "images/flow_007_f8df8760/screen_07.jpg",
+          "alt": "Screen 6 of 7 of the Comparing stock metrics flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_08.jpg",
+          "local_path": "images/flow_007_f8df8760/screen_08.jpg",
+          "alt": "Screen 7 of 7 of the Comparing stock metrics flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "1f9be44e-48b4-4cd5-9a8f-75bc92d9a8c8",
+      "flow_title": "Sharing a stock",
+      "app_name": "Fey Web",
+      "full_title": "Sharing a stock in Fey Web",
+      "flow_url": "https://mobbin.com/flows/1f9be44e-48b4-4cd5-9a8f-75bc92d9a8c8",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_008_1f9be44e/screen_02.jpg",
+          "alt": "Screen 1 of 3 of the Sharing a stock flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_008_1f9be44e/screen_03.jpg",
+          "alt": "Screen 2 of 3 of the Sharing a stock flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_008_1f9be44e/screen_04.jpg",
+          "alt": "Screen 3 of 3 of the Sharing a stock flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "926fdeb0-c2d5-44e3-b076-e3afb26766f0",
+      "flow_title": "Saving to watchlist",
+      "app_name": "Fey Web",
+      "full_title": "Saving to watchlist in Fey Web",
+      "flow_url": "https://mobbin.com/flows/926fdeb0-c2d5-44e3-b076-e3afb26766f0",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_009_926fdeb0/screen_02.jpg",
+          "alt": "Screen 1 of 2 of the Saving to watchlist flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_009_926fdeb0/screen_03.jpg",
+          "alt": "Screen 2 of 2 of the Saving to watchlist flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "ec003842-53bd-49da-943e-cb1646948036",
+      "flow_title": "News summary",
+      "app_name": "Fey Web",
+      "full_title": "News summary in Fey Web",
+      "flow_url": "https://mobbin.com/flows/ec003842-53bd-49da-943e-cb1646948036",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_010_ec003842/screen_02.jpg",
+          "alt": "Screen 1 of 4 of the News summary flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_010_ec003842/screen_03.jpg",
+          "alt": "Screen 2 of 4 of the News summary flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_010_ec003842/screen_04.jpg",
+          "alt": "Screen 3 of 4 of the News summary flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_010_ec003842/screen_05.jpg",
+          "alt": "Screen 4 of 4 of the News summary flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "4d912185-4884-4132-bf4d-29a67b9b9d34",
+      "flow_title": "Analyst estimates",
+      "app_name": "Fey Web",
+      "full_title": "Analyst estimates in Fey Web",
+      "flow_url": "https://mobbin.com/flows/4d912185-4884-4132-bf4d-29a67b9b9d34",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_011_4d912185/screen_02.jpg",
+          "alt": "Screen 1 of 4 of the Analyst estimates flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_011_4d912185/screen_03.jpg",
+          "alt": "Screen 2 of 4 of the Analyst estimates flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_011_4d912185/screen_04.jpg",
+          "alt": "Screen 3 of 4 of the Analyst estimates flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_011_4d912185/screen_05.jpg",
+          "alt": "Screen 4 of 4 of the Analyst estimates flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "93de783e-912f-4afb-89b8-125acbcf2cb9",
+      "flow_title": "Filtering analyst estimates",
+      "app_name": "Fey Web",
+      "full_title": "Filtering analyst estimates in Fey Web",
+      "flow_url": "https://mobbin.com/flows/93de783e-912f-4afb-89b8-125acbcf2cb9",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_012_93de783e/screen_02.jpg",
+          "alt": "Screen 1 of 3 of the Filtering analyst estimates flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_012_93de783e/screen_03.jpg",
+          "alt": "Screen 2 of 3 of the Filtering analyst estimates flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_012_93de783e/screen_04.jpg",
+          "alt": "Screen 3 of 3 of the Filtering analyst estimates flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "eebe6433-0070-4dd8-be2b-ef9f386bb361",
+      "flow_title": "Stock earnings",
+      "app_name": "Fey Web",
+      "full_title": "Stock earnings in Fey Web",
+      "flow_url": "https://mobbin.com/flows/eebe6433-0070-4dd8-be2b-ef9f386bb361",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_013_eebe6433/screen_02.jpg",
+          "alt": "Screen 1 of 3 of the Stock earnings flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_013_eebe6433/screen_03.jpg",
+          "alt": "Screen 2 of 3 of the Stock earnings flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_013_eebe6433/screen_04.jpg",
+          "alt": "Screen 3 of 3 of the Stock earnings flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "1b20b42b-e477-43b9-82f6-c4e0c51af649",
+      "flow_title": "Financial stats",
+      "app_name": "Fey Web",
+      "full_title": "Financial stats in Fey Web",
+      "flow_url": "https://mobbin.com/flows/1b20b42b-e477-43b9-82f6-c4e0c51af649",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_014_1b20b42b/screen_02.jpg",
+          "alt": "Screen 1 of 6 of the Financial stats flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_014_1b20b42b/screen_03.jpg",
+          "alt": "Screen 2 of 6 of the Financial stats flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_014_1b20b42b/screen_04.jpg",
+          "alt": "Screen 3 of 6 of the Financial stats flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_014_1b20b42b/screen_05.jpg",
+          "alt": "Screen 4 of 6 of the Financial stats flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_014_1b20b42b/screen_06.jpg",
+          "alt": "Screen 5 of 6 of the Financial stats flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_07.jpg",
+          "local_path": "images/flow_014_1b20b42b/screen_07.jpg",
+          "alt": "Screen 6 of 6 of the Financial stats flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "98e7bcd4-2a73-4b30-b221-e9aebe41835d",
+      "flow_title": "Comparing financial metrics",
+      "app_name": "Fey Web",
+      "full_title": "Comparing financial metrics in Fey Web",
+      "flow_url": "https://mobbin.com/flows/98e7bcd4-2a73-4b30-b221-e9aebe41835d",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_015_98e7bcd4/screen_02.jpg",
+          "alt": "Screen 1 of 5 of the Comparing financial metrics flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_015_98e7bcd4/screen_03.jpg",
+          "alt": "Screen 2 of 5 of the Comparing financial metrics flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_015_98e7bcd4/screen_04.jpg",
+          "alt": "Screen 3 of 5 of the Comparing financial metrics flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_015_98e7bcd4/screen_05.jpg",
+          "alt": "Screen 4 of 5 of the Comparing financial metrics flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_015_98e7bcd4/screen_06.jpg",
+          "alt": "Screen 5 of 5 of the Comparing financial metrics flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "ee5391c7-e35b-458c-99c9-d8c9d5991dd7",
+      "flow_title": "Peer analysis",
+      "app_name": "Fey Web",
+      "full_title": "Peer analysis in Fey Web",
+      "flow_url": "https://mobbin.com/flows/ee5391c7-e35b-458c-99c9-d8c9d5991dd7",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_016_ee5391c7/screen_02.jpg",
+          "alt": "Screen 1 of 2 of the Peer analysis flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_016_ee5391c7/screen_03.jpg",
+          "alt": "Screen 2 of 2 of the Peer analysis flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "3b57f246-ba61-4659-97ca-d64b54c317e1",
+      "flow_title": "Editing peers list",
+      "app_name": "Fey Web",
+      "full_title": "Editing peers list in Fey Web",
+      "flow_url": "https://mobbin.com/flows/3b57f246-ba61-4659-97ca-d64b54c317e1",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_017_3b57f246/screen_02.jpg",
+          "alt": "Screen 1 of 5 of the Editing peers list flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_017_3b57f246/screen_03.jpg",
+          "alt": "Screen 2 of 5 of the Editing peers list flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_017_3b57f246/screen_04.jpg",
+          "alt": "Screen 3 of 5 of the Editing peers list flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_017_3b57f246/screen_05.jpg",
+          "alt": "Screen 4 of 5 of the Editing peers list flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_017_3b57f246/screen_06.jpg",
+          "alt": "Screen 5 of 5 of the Editing peers list flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "d6e1e382-274b-4752-8133-61caaf1da550",
+      "flow_title": "Analysis",
+      "app_name": "Fey Web",
+      "full_title": "Analysis in Fey Web",
+      "flow_url": "https://mobbin.com/flows/d6e1e382-274b-4752-8133-61caaf1da550",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_018_d6e1e382/screen_02.jpg",
+          "alt": "Screen 1 of 5 of the Analysis flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_018_d6e1e382/screen_03.jpg",
+          "alt": "Screen 2 of 5 of the Analysis flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_018_d6e1e382/screen_04.jpg",
+          "alt": "Screen 3 of 5 of the Analysis flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_018_d6e1e382/screen_05.jpg",
+          "alt": "Screen 4 of 5 of the Analysis flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_018_d6e1e382/screen_06.jpg",
+          "alt": "Screen 5 of 5 of the Analysis flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "4167ce42-5987-4f10-8ed8-b80e1396307c",
+      "flow_title": "Earnings calendar",
+      "app_name": "Fey Web",
+      "full_title": "Earnings calendar in Fey Web",
+      "flow_url": "https://mobbin.com/flows/4167ce42-5987-4f10-8ed8-b80e1396307c",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_019_4167ce42/screen_02.jpg",
+          "alt": "Screen 1 of 7 of the Earnings calendar flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_019_4167ce42/screen_03.jpg",
+          "alt": "Screen 2 of 7 of the Earnings calendar flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_019_4167ce42/screen_04.jpg",
+          "alt": "Screen 3 of 7 of the Earnings calendar flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_019_4167ce42/screen_05.jpg",
+          "alt": "Screen 4 of 7 of the Earnings calendar flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_019_4167ce42/screen_06.jpg",
+          "alt": "Screen 5 of 7 of the Earnings calendar flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_07.jpg",
+          "local_path": "images/flow_019_4167ce42/screen_07.jpg",
+          "alt": "Screen 6 of 7 of the Earnings calendar flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_08.jpg",
+          "local_path": "images/flow_019_4167ce42/screen_08.jpg",
+          "alt": "Screen 7 of 7 of the Earnings calendar flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "0aecddf0-6408-4e3e-a99e-63f0f2335f89",
+      "flow_title": "Portfolio",
+      "app_name": "Fey Web",
+      "full_title": "Portfolio in Fey Web",
+      "flow_url": "https://mobbin.com/flows/0aecddf0-6408-4e3e-a99e-63f0f2335f89",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_020_0aecddf0/screen_02.jpg",
+          "alt": "Screen 1 of 4 of the Portfolio flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_020_0aecddf0/screen_03.jpg",
+          "alt": "Screen 2 of 4 of the Portfolio flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_020_0aecddf0/screen_04.jpg",
+          "alt": "Screen 3 of 4 of the Portfolio flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_020_0aecddf0/screen_05.jpg",
+          "alt": "Screen 4 of 4 of the Portfolio flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "b665f678-2e88-4cab-89cd-4f5936e410b1",
+      "flow_title": "Connect to an app",
+      "app_name": "Fey Web",
+      "full_title": "Connect to an app in Fey Web",
+      "flow_url": "https://mobbin.com/flows/b665f678-2e88-4cab-89cd-4f5936e410b1",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_021_b665f678/screen_02.jpg",
+          "alt": "Screen 1 of 2 of the Connect to an app flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_021_b665f678/screen_03.jpg",
+          "alt": "Screen 2 of 2 of the Connect to an app flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "d7297b7d-bd6a-4ab6-a99c-38df79f20c14",
+      "flow_title": "Moving stocks to a list",
+      "app_name": "Fey Web",
+      "full_title": "Moving stocks to a list in Fey Web",
+      "flow_url": "https://mobbin.com/flows/d7297b7d-bd6a-4ab6-a99c-38df79f20c14",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_022_d7297b7d/screen_02.jpg",
+          "alt": "Screen 1 of 8 of the Moving stocks to a list flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_022_d7297b7d/screen_03.jpg",
+          "alt": "Screen 2 of 8 of the Moving stocks to a list flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_022_d7297b7d/screen_04.jpg",
+          "alt": "Screen 3 of 8 of the Moving stocks to a list flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_022_d7297b7d/screen_05.jpg",
+          "alt": "Screen 4 of 8 of the Moving stocks to a list flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_022_d7297b7d/screen_06.jpg",
+          "alt": "Screen 5 of 8 of the Moving stocks to a list flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_07.jpg",
+          "local_path": "images/flow_022_d7297b7d/screen_07.jpg",
+          "alt": "Screen 6 of 8 of the Moving stocks to a list flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_08.jpg",
+          "local_path": "images/flow_022_d7297b7d/screen_08.jpg",
+          "alt": "Screen 7 of 8 of the Moving stocks to a list flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_09.jpg",
+          "local_path": "images/flow_022_d7297b7d/screen_09.jpg",
+          "alt": "Screen 8 of 8 of the Moving stocks to a list flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "9d6e811b-c9eb-4fb6-aa2b-c29651b8b724",
+      "flow_title": "Deleting a stock",
+      "app_name": "Fey Web",
+      "full_title": "Deleting a stock in Fey Web",
+      "flow_url": "https://mobbin.com/flows/9d6e811b-c9eb-4fb6-aa2b-c29651b8b724",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_023_9d6e811b/screen_02.jpg",
+          "alt": "Screen 1 of 2 of the Deleting a stock flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_023_9d6e811b/screen_03.jpg",
+          "alt": "Screen 2 of 2 of the Deleting a stock flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "3ab16109-2348-476a-a1d1-d4b636ae4eff",
+      "flow_title": "Screener",
+      "app_name": "Fey Web",
+      "full_title": "Screener in Fey Web",
+      "flow_url": "https://mobbin.com/flows/3ab16109-2348-476a-a1d1-d4b636ae4eff",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_024_3ab16109/screen_02.jpg",
+          "alt": "Screen 1 of 2 of the Screener flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_024_3ab16109/screen_03.jpg",
+          "alt": "Screen 2 of 2 of the Screener flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "9c015988-0f28-4643-ac06-6ee07fb1b4c0",
+      "flow_title": "Filtering stocks",
+      "app_name": "Fey Web",
+      "full_title": "Filtering stocks in Fey Web",
+      "flow_url": "https://mobbin.com/flows/9c015988-0f28-4643-ac06-6ee07fb1b4c0",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_025_9c015988/screen_02.jpg",
+          "alt": "Screen 1 of 5 of the Filtering stocks flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_025_9c015988/screen_03.jpg",
+          "alt": "Screen 2 of 5 of the Filtering stocks flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_025_9c015988/screen_04.jpg",
+          "alt": "Screen 3 of 5 of the Filtering stocks flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_025_9c015988/screen_05.jpg",
+          "alt": "Screen 4 of 5 of the Filtering stocks flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_025_9c015988/screen_06.jpg",
+          "alt": "Screen 5 of 5 of the Filtering stocks flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "98664574-3073-4095-8876-21bb818e738d",
+      "flow_title": "Saving a filter as template",
+      "app_name": "Fey Web",
+      "full_title": "Saving a filter as template in Fey Web",
+      "flow_url": "https://mobbin.com/flows/98664574-3073-4095-8876-21bb818e738d",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_026_98664574/screen_02.jpg",
+          "alt": "Screen 1 of 5 of the Saving a filter as template flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_026_98664574/screen_03.jpg",
+          "alt": "Screen 2 of 5 of the Saving a filter as template flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_026_98664574/screen_04.jpg",
+          "alt": "Screen 3 of 5 of the Saving a filter as template flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_026_98664574/screen_05.jpg",
+          "alt": "Screen 4 of 5 of the Saving a filter as template flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_026_98664574/screen_06.jpg",
+          "alt": "Screen 5 of 5 of the Saving a filter as template flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "97864c36-a037-4f65-b628-86684e859eee",
+      "flow_title": "Sorting stocks",
+      "app_name": "Fey Web",
+      "full_title": "Sorting stocks in Fey Web",
+      "flow_url": "https://mobbin.com/flows/97864c36-a037-4f65-b628-86684e859eee",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_027_97864c36/screen_02.jpg",
+          "alt": "Screen 1 of 4 of the Sorting stocks flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_027_97864c36/screen_03.jpg",
+          "alt": "Screen 2 of 4 of the Sorting stocks flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_027_97864c36/screen_04.jpg",
+          "alt": "Screen 3 of 4 of the Sorting stocks flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_027_97864c36/screen_05.jpg",
+          "alt": "Screen 4 of 4 of the Sorting stocks flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "ece74765-aa19-4c68-b73b-5b7935875f69",
+      "flow_title": "Filtering with template",
+      "app_name": "Fey Web",
+      "full_title": "Filtering with template in Fey Web",
+      "flow_url": "https://mobbin.com/flows/ece74765-aa19-4c68-b73b-5b7935875f69",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_028_ece74765/screen_02.jpg",
+          "alt": "Screen 1 of 4 of the Filtering with template flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_028_ece74765/screen_03.jpg",
+          "alt": "Screen 2 of 4 of the Filtering with template flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_028_ece74765/screen_04.jpg",
+          "alt": "Screen 3 of 4 of the Filtering with template flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_028_ece74765/screen_05.jpg",
+          "alt": "Screen 4 of 4 of the Filtering with template flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "ca0c870d-377e-4232-99a1-ded6302b2e0f",
+      "flow_title": "Searching Fey",
+      "app_name": "Fey Web",
+      "full_title": "Searching Fey in Fey Web",
+      "flow_url": "https://mobbin.com/flows/ca0c870d-377e-4232-99a1-ded6302b2e0f",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_029_ca0c870d/screen_02.jpg",
+          "alt": "Screen 1 of 5 of the Searching Fey flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_029_ca0c870d/screen_03.jpg",
+          "alt": "Screen 2 of 5 of the Searching Fey flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_029_ca0c870d/screen_04.jpg",
+          "alt": "Screen 3 of 5 of the Searching Fey flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_029_ca0c870d/screen_05.jpg",
+          "alt": "Screen 4 of 5 of the Searching Fey flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_029_ca0c870d/screen_06.jpg",
+          "alt": "Screen 5 of 5 of the Searching Fey flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "4c6dc3c7-ba6c-45e0-af04-4f3192bd375e",
+      "flow_title": "Watchlist",
+      "app_name": "Fey Web",
+      "full_title": "Watchlist in Fey Web",
+      "flow_url": "https://mobbin.com/flows/4c6dc3c7-ba6c-45e0-af04-4f3192bd375e",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_030_4c6dc3c7/screen_02.jpg",
+          "alt": "Screen 1 of 3 of the Watchlist flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_030_4c6dc3c7/screen_03.jpg",
+          "alt": "Screen 2 of 3 of the Watchlist flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_030_4c6dc3c7/screen_04.jpg",
+          "alt": "Screen 3 of 3 of the Watchlist flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "ad4512d4-62bb-4265-8b36-5900c65d5686",
+      "flow_title": "Saving stocks",
+      "app_name": "Fey Web",
+      "full_title": "Saving stocks in Fey Web",
+      "flow_url": "https://mobbin.com/flows/ad4512d4-62bb-4265-8b36-5900c65d5686",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_031_ad4512d4/screen_02.jpg",
+          "alt": "Screen 1 of 5 of the Saving stocks flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_031_ad4512d4/screen_03.jpg",
+          "alt": "Screen 2 of 5 of the Saving stocks flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_031_ad4512d4/screen_04.jpg",
+          "alt": "Screen 3 of 5 of the Saving stocks flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_031_ad4512d4/screen_05.jpg",
+          "alt": "Screen 4 of 5 of the Saving stocks flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_031_ad4512d4/screen_06.jpg",
+          "alt": "Screen 5 of 5 of the Saving stocks flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "666beba4-0b25-4cc5-8411-89686f1120fa",
+      "flow_title": "Creating a list",
+      "app_name": "Fey Web",
+      "full_title": "Creating a list in Fey Web",
+      "flow_url": "https://mobbin.com/flows/666beba4-0b25-4cc5-8411-89686f1120fa",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_032_666beba4/screen_02.jpg",
+          "alt": "Screen 1 of 4 of the Creating a list flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_032_666beba4/screen_03.jpg",
+          "alt": "Screen 2 of 4 of the Creating a list flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_032_666beba4/screen_04.jpg",
+          "alt": "Screen 3 of 4 of the Creating a list flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_032_666beba4/screen_05.jpg",
+          "alt": "Screen 4 of 4 of the Creating a list flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "035e8f7d-e712-4d31-b774-fe89da9926ad",
+      "flow_title": "Deleting a list",
+      "app_name": "Fey Web",
+      "full_title": "Deleting a list in Fey Web",
+      "flow_url": "https://mobbin.com/flows/035e8f7d-e712-4d31-b774-fe89da9926ad",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_033_035e8f7d/screen_02.jpg",
+          "alt": "Screen 1 of 3 of the Deleting a list flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_033_035e8f7d/screen_03.jpg",
+          "alt": "Screen 2 of 3 of the Deleting a list flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_033_035e8f7d/screen_04.jpg",
+          "alt": "Screen 3 of 3 of the Deleting a list flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "9fb32512-5b70-45a0-8483-c65ab6c4098d",
+      "flow_title": "Sorting stocks (watchlist)",
+      "app_name": "Fey Web",
+      "full_title": "Sorting stocks (watchlist) in Fey Web",
+      "flow_url": "https://mobbin.com/flows/9fb32512-5b70-45a0-8483-c65ab6c4098d",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_034_9fb32512/screen_02.jpg",
+          "alt": "Screen 1 of 2 of the Sorting stocks (watchlist) flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_034_9fb32512/screen_03.jpg",
+          "alt": "Screen 2 of 2 of the Sorting stocks (watchlist) flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "8e3bb563-9001-4803-9a02-8f631f8039f3",
+      "flow_title": "Reordering stocks",
+      "app_name": "Fey Web",
+      "full_title": "Reordering stocks in Fey Web",
+      "flow_url": "https://mobbin.com/flows/8e3bb563-9001-4803-9a02-8f631f8039f3",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_035_8e3bb563/screen_02.jpg",
+          "alt": "Screen 1 of 3 of the Reordering stocks flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_035_8e3bb563/screen_03.jpg",
+          "alt": "Screen 2 of 3 of the Reordering stocks flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_035_8e3bb563/screen_04.jpg",
+          "alt": "Screen 3 of 3 of the Reordering stocks flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "478ce176-fb82-4a69-af4e-335ed0ebbc95",
+      "flow_title": "Settings",
+      "app_name": "Fey Web",
+      "full_title": "Settings in Fey Web",
+      "flow_url": "https://mobbin.com/flows/478ce176-fb82-4a69-af4e-335ed0ebbc95",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_036_478ce176/screen_02.jpg",
+          "alt": "Screen 1 of 2 of the Settings flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_036_478ce176/screen_03.jpg",
+          "alt": "Screen 2 of 2 of the Settings flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "eac9f8c3-b571-4b4d-9679-ddebb2a249ca",
+      "flow_title": "Updating an account name",
+      "app_name": "Fey Web",
+      "full_title": "Updating an account name in Fey Web",
+      "flow_url": "https://mobbin.com/flows/eac9f8c3-b571-4b4d-9679-ddebb2a249ca",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_037_eac9f8c3/screen_02.jpg",
+          "alt": "Screen 1 of 4 of the Updating an account name flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_037_eac9f8c3/screen_03.jpg",
+          "alt": "Screen 2 of 4 of the Updating an account name flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_037_eac9f8c3/screen_04.jpg",
+          "alt": "Screen 3 of 4 of the Updating an account name flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_037_eac9f8c3/screen_05.jpg",
+          "alt": "Screen 4 of 4 of the Updating an account name flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "569d21eb-16ea-42f4-96fd-e60866e14e0a",
+      "flow_title": "Hiding navigation options",
+      "app_name": "Fey Web",
+      "full_title": "Hiding navigation options in Fey Web",
+      "flow_url": "https://mobbin.com/flows/569d21eb-16ea-42f4-96fd-e60866e14e0a",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_038_569d21eb/screen_02.jpg",
+          "alt": "Screen 1 of 2 of the Hiding navigation options flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_038_569d21eb/screen_03.jpg",
+          "alt": "Screen 2 of 2 of the Hiding navigation options flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "abe472ae-b1c9-437c-8b11-d2d5c51ec78d",
+      "flow_title": "Disabling newsletter",
+      "app_name": "Fey Web",
+      "full_title": "Disabling newsletter in Fey Web",
+      "flow_url": "https://mobbin.com/flows/abe472ae-b1c9-437c-8b11-d2d5c51ec78d",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_039_abe472ae/screen_02.jpg",
+          "alt": "Screen 1 of 2 of the Disabling newsletter flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_039_abe472ae/screen_03.jpg",
+          "alt": "Screen 2 of 2 of the Disabling newsletter flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "28c4f6c0-1b24-4b2e-801d-60439c86fc46",
+      "flow_title": "Searching for shortcuts",
+      "app_name": "Fey Web",
+      "full_title": "Searching for shortcuts in Fey Web",
+      "flow_url": "https://mobbin.com/flows/28c4f6c0-1b24-4b2e-801d-60439c86fc46",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_040_28c4f6c0/screen_02.jpg",
+          "alt": "Screen 1 of 3 of the Searching for shortcuts flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_040_28c4f6c0/screen_03.jpg",
+          "alt": "Screen 2 of 3 of the Searching for shortcuts flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_040_28c4f6c0/screen_04.jpg",
+          "alt": "Screen 3 of 3 of the Searching for shortcuts flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "4f2bcfd5-e0ee-4b4c-8fd3-11d7c4769b45",
+      "flow_title": "Sending feedback",
+      "app_name": "Fey Web",
+      "full_title": "Sending feedback in Fey Web",
+      "flow_url": "https://mobbin.com/flows/4f2bcfd5-e0ee-4b4c-8fd3-11d7c4769b45",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_041_4f2bcfd5/screen_02.jpg",
+          "alt": "Screen 1 of 6 of the Sending feedback flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_041_4f2bcfd5/screen_03.jpg",
+          "alt": "Screen 2 of 6 of the Sending feedback flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_041_4f2bcfd5/screen_04.jpg",
+          "alt": "Screen 3 of 6 of the Sending feedback flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_041_4f2bcfd5/screen_05.jpg",
+          "alt": "Screen 4 of 6 of the Sending feedback flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_041_4f2bcfd5/screen_06.jpg",
+          "alt": "Screen 5 of 6 of the Sending feedback flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_07.jpg",
+          "local_path": "images/flow_041_4f2bcfd5/screen_07.jpg",
+          "alt": "Screen 6 of 6 of the Sending feedback flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "756266cc-4ab4-493b-944b-5b4a063aec05",
+      "flow_title": "Referring a friend",
+      "app_name": "Fey Web",
+      "full_title": "Referring a friend in Fey Web",
+      "flow_url": "https://mobbin.com/flows/756266cc-4ab4-493b-944b-5b4a063aec05",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_042_756266cc/screen_02.jpg",
+          "alt": "Screen 1 of 4 of the Referring a friend flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_042_756266cc/screen_03.jpg",
+          "alt": "Screen 2 of 4 of the Referring a friend flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_042_756266cc/screen_04.jpg",
+          "alt": "Screen 3 of 4 of the Referring a friend flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_042_756266cc/screen_05.jpg",
+          "alt": "Screen 4 of 4 of the Referring a friend flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "dedd5d08-22ea-4185-bc3a-f0670ace08e3",
+      "flow_title": "Canceling a subscription",
+      "app_name": "Fey Web",
+      "full_title": "Canceling a subscription in Fey Web",
+      "flow_url": "https://mobbin.com/flows/dedd5d08-22ea-4185-bc3a-f0670ace08e3",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_043_dedd5d08/screen_02.jpg",
+          "alt": "Screen 1 of 5 of the Canceling a subscription flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_043_dedd5d08/screen_03.jpg",
+          "alt": "Screen 2 of 5 of the Canceling a subscription flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_043_dedd5d08/screen_04.jpg",
+          "alt": "Screen 3 of 5 of the Canceling a subscription flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_043_dedd5d08/screen_05.jpg",
+          "alt": "Screen 4 of 5 of the Canceling a subscription flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_043_dedd5d08/screen_06.jpg",
+          "alt": "Screen 5 of 5 of the Canceling a subscription flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "927fb29a-162e-489f-8cc8-0c3abdd17c9e",
+      "flow_title": "Claiming a referral",
+      "app_name": "Fey Web",
+      "full_title": "Claiming a referral in Fey Web",
+      "flow_url": "https://mobbin.com/flows/927fb29a-162e-489f-8cc8-0c3abdd17c9e",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_044_927fb29a/screen_02.jpg",
+          "alt": "Screen 1 of 6 of the Claiming a referral flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_044_927fb29a/screen_03.jpg",
+          "alt": "Screen 2 of 6 of the Claiming a referral flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_044_927fb29a/screen_04.jpg",
+          "alt": "Screen 3 of 6 of the Claiming a referral flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_044_927fb29a/screen_05.jpg",
+          "alt": "Screen 4 of 6 of the Claiming a referral flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_044_927fb29a/screen_06.jpg",
+          "alt": "Screen 5 of 6 of the Claiming a referral flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_07.jpg",
+          "local_path": "images/flow_044_927fb29a/screen_07.jpg",
+          "alt": "Screen 6 of 6 of the Claiming a referral flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "0fda4a44-5d25-4e8b-a1ac-b280b6aa70d0",
+      "flow_title": "Logging out",
+      "app_name": "Fey Web",
+      "full_title": "Logging out in Fey Web",
+      "flow_url": "https://mobbin.com/flows/0fda4a44-5d25-4e8b-a1ac-b280b6aa70d0",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_045_0fda4a44/screen_02.jpg",
+          "alt": "Screen 1 of 2 of the Logging out flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_045_0fda4a44/screen_03.jpg",
+          "alt": "Screen 2 of 2 of the Logging out flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "de8fa3a9-0363-4b83-b2a7-6096802810d2",
+      "flow_title": "Logging in",
+      "app_name": "Fey Web",
+      "full_title": "Logging in in Fey Web",
+      "flow_url": "https://mobbin.com/flows/de8fa3a9-0363-4b83-b2a7-6096802810d2",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_046_de8fa3a9/screen_02.jpg",
+          "alt": "Screen 1 of 5 of the Logging in flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_046_de8fa3a9/screen_03.jpg",
+          "alt": "Screen 2 of 5 of the Logging in flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_046_de8fa3a9/screen_04.jpg",
+          "alt": "Screen 3 of 5 of the Logging in flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_046_de8fa3a9/screen_05.jpg",
+          "alt": "Screen 4 of 5 of the Logging in flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_046_de8fa3a9/screen_06.jpg",
+          "alt": "Screen 5 of 5 of the Logging in flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "69fa2171-901e-4e1d-9453-2fd503ee41d9",
+      "flow_title": "Landing page",
+      "app_name": "Fey Web",
+      "full_title": "Landing page in Fey Web",
+      "flow_url": "https://mobbin.com/flows/69fa2171-901e-4e1d-9453-2fd503ee41d9",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_047_69fa2171/screen_02.jpg",
+          "alt": "Screen 1 of 11 of the Landing page flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_047_69fa2171/screen_03.jpg",
+          "alt": "Screen 2 of 11 of the Landing page flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_047_69fa2171/screen_04.jpg",
+          "alt": "Screen 3 of 11 of the Landing page flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_047_69fa2171/screen_05.jpg",
+          "alt": "Screen 4 of 11 of the Landing page flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_047_69fa2171/screen_06.jpg",
+          "alt": "Screen 5 of 11 of the Landing page flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_07.jpg",
+          "local_path": "images/flow_047_69fa2171/screen_07.jpg",
+          "alt": "Screen 6 of 11 of the Landing page flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_08.jpg",
+          "local_path": "images/flow_047_69fa2171/screen_08.jpg",
+          "alt": "Screen 7 of 11 of the Landing page flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_09.jpg",
+          "local_path": "images/flow_047_69fa2171/screen_09.jpg",
+          "alt": "Screen 8 of 11 of the Landing page flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_10.jpg",
+          "local_path": "images/flow_047_69fa2171/screen_10.jpg",
+          "alt": "Screen 9 of 11 of the Landing page flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_11.jpg",
+          "local_path": "images/flow_047_69fa2171/screen_11.jpg",
+          "alt": "Screen 10 of 11 of the Landing page flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_12.jpg",
+          "local_path": "images/flow_047_69fa2171/screen_12.jpg",
+          "alt": "Screen 11 of 11 of the Landing page flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "750d1b0b-ed4d-4df2-b5c1-79a4230c26b5",
+      "flow_title": "Insights",
+      "app_name": "Fey Web",
+      "full_title": "Insights in Fey Web",
+      "flow_url": "https://mobbin.com/flows/750d1b0b-ed4d-4df2-b5c1-79a4230c26b5",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_048_750d1b0b/screen_02.jpg",
+          "alt": "Screen 1 of 3 of the Insights flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_048_750d1b0b/screen_03.jpg",
+          "alt": "Screen 2 of 3 of the Insights flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_048_750d1b0b/screen_04.jpg",
+          "alt": "Screen 3 of 3 of the Insights flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "2cd6be73-6edb-4643-8922-7424263a0791",
+      "flow_title": "Features",
+      "app_name": "Fey Web",
+      "full_title": "Features in Fey Web",
+      "flow_url": "https://mobbin.com/flows/2cd6be73-6edb-4643-8922-7424263a0791",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_049_2cd6be73/screen_02.jpg",
+          "alt": "Screen 1 of 8 of the Features flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_049_2cd6be73/screen_03.jpg",
+          "alt": "Screen 2 of 8 of the Features flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_049_2cd6be73/screen_04.jpg",
+          "alt": "Screen 3 of 8 of the Features flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_049_2cd6be73/screen_05.jpg",
+          "alt": "Screen 4 of 8 of the Features flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_049_2cd6be73/screen_06.jpg",
+          "alt": "Screen 5 of 8 of the Features flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_07.jpg",
+          "local_path": "images/flow_049_2cd6be73/screen_07.jpg",
+          "alt": "Screen 6 of 8 of the Features flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_08.jpg",
+          "local_path": "images/flow_049_2cd6be73/screen_08.jpg",
+          "alt": "Screen 7 of 8 of the Features flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_09.jpg",
+          "local_path": "images/flow_049_2cd6be73/screen_09.jpg",
+          "alt": "Screen 8 of 8 of the Features flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "ce655b7d-c047-457b-a99d-1fecc26c0434",
+      "flow_title": "Pricing",
+      "app_name": "Fey Web",
+      "full_title": "Pricing in Fey Web",
+      "flow_url": "https://mobbin.com/flows/ce655b7d-c047-457b-a99d-1fecc26c0434",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_050_ce655b7d/screen_02.jpg",
+          "alt": "Screen 1 of 6 of the Pricing flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_050_ce655b7d/screen_03.jpg",
+          "alt": "Screen 2 of 6 of the Pricing flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_050_ce655b7d/screen_04.jpg",
+          "alt": "Screen 3 of 6 of the Pricing flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_050_ce655b7d/screen_05.jpg",
+          "alt": "Screen 4 of 6 of the Pricing flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_06.jpg",
+          "local_path": "images/flow_050_ce655b7d/screen_06.jpg",
+          "alt": "Screen 5 of 6 of the Pricing flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_07.jpg",
+          "local_path": "images/flow_050_ce655b7d/screen_07.jpg",
+          "alt": "Screen 6 of 6 of the Pricing flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "bf933cb1-5d41-442d-a595-a9e519edbf15",
+      "flow_title": "Updates",
+      "app_name": "Fey Web",
+      "full_title": "Updates in Fey Web",
+      "flow_url": "https://mobbin.com/flows/bf933cb1-5d41-442d-a595-a9e519edbf15",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_051_bf933cb1/screen_02.jpg",
+          "alt": "Screen 1 of 4 of the Updates flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_051_bf933cb1/screen_03.jpg",
+          "alt": "Screen 2 of 4 of the Updates flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_051_bf933cb1/screen_04.jpg",
+          "alt": "Screen 3 of 4 of the Updates flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_05.jpg",
+          "local_path": "images/flow_051_bf933cb1/screen_05.jpg",
+          "alt": "Screen 4 of 4 of the Updates flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "ae208b24-1dc7-4f33-bd66-a26945fb245b",
+      "flow_title": "App",
+      "app_name": "Fey Web",
+      "full_title": "App in Fey Web",
+      "flow_url": "https://mobbin.com/flows/ae208b24-1dc7-4f33-bd66-a26945fb245b",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_052_ae208b24/screen_02.jpg",
+          "alt": "Screen 1 of 3 of the App flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_052_ae208b24/screen_03.jpg",
+          "alt": "Screen 2 of 3 of the App flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_052_ae208b24/screen_04.jpg",
+          "alt": "Screen 3 of 3 of the App flow on the Fey Web app."
+        }
+      ]
+    },
+    {
+      "flow_id": "5c384000-6306-4061-94e4-f0865dfb3770",
+      "flow_title": "Privacy",
+      "app_name": "Fey Web",
+      "full_title": "Privacy in Fey Web",
+      "flow_url": "https://mobbin.com/flows/5c384000-6306-4061-94e4-f0865dfb3770",
+      "images": [
+        {
+          "filename": "screen_02.jpg",
+          "local_path": "images/flow_053_5c384000/screen_02.jpg",
+          "alt": "Screen 1 of 3 of the Privacy flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_03.jpg",
+          "local_path": "images/flow_053_5c384000/screen_03.jpg",
+          "alt": "Screen 2 of 3 of the Privacy flow on the Fey Web app."
+        },
+        {
+          "filename": "screen_04.jpg",
+          "local_path": "images/flow_053_5c384000/screen_04.jpg",
+          "alt": "Screen 3 of 3 of the Privacy flow on the Fey Web app."
+        }
+      ]
+    }
+  ];
+
+// Export for browser use
+if (typeof window !== 'undefined') {
+    window.flowsData = flows;
+}
+
+// Export for Node.js (if needed)
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = flows;
+}

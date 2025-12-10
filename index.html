@@ -59,6 +59,39 @@
             color: #888;
         }
         
+        .sidebar-search {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid #2d2d2d;
+            flex-shrink: 0;
+        }
+        
+        .search-input {
+            width: 100%;
+            background: #2a2a2a;
+            border: 1px solid #3d3d3d;
+            color: #ffffff;
+            padding: 0.625rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8125rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+        
+        .search-input::placeholder {
+            color: #888;
+        }
+        
+        .search-input:focus {
+            background: #333;
+            border-color: #555;
+        }
+        
+        .search-results-info {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: #888;
+        }
+        
         .sidebar-controls {
             padding: 1rem 1.25rem;
             border-top: 1px solid #2d2d2d;
@@ -150,15 +183,19 @@
             border-left-color: #ffffff;
         }
         
+        .nav-item.hidden {
+            display: none;
+        }
+        
         .sidebar-toggle {
             position: fixed;
             left: 300px;
-            top: 1rem;
+            bottom: 1rem;
             z-index: 101;
             background: #1e1e1e;
             border: 1px solid #2d2d2d;
-            border-radius: 0 8px 8px 0;
-            padding: 0.75rem 0.5rem;
+            border-radius: 0 4px 4px 0;
+            padding: 0.7rem 0.4rem;
             cursor: pointer;
             color: #ffffff;
             transition: left 0.3s ease;
@@ -172,7 +209,7 @@
         .sidebar-toggle.collapsed {
             left: 0;
             border-left: 1px solid #2d2d2d;
-            border-radius: 0 8px 8px 0;
+            border-radius: 0 4px 4px 0;
         }
         
         
@@ -435,7 +472,7 @@
     </button>
     
     <button type="button" class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebarCollapse()">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" id="toggleIcon">
+        <svg width="10" height="10" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" id="toggleIcon">
             <title>Toggle sidebar</title>
             <path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -449,6 +486,16 @@
                 <span>·</span>
                 <span id="sidebarScreenCount">238 screens</span>
                     </div>
+                </div>
+        <div class="sidebar-search">
+            <input 
+                type="text" 
+                class="search-input" 
+                id="searchInput" 
+                placeholder="Search flows..."
+                autocomplete="off"
+            >
+            <div class="search-results-info" id="searchResultsInfo"></div>
                 </div>
         <nav class="sidebar-nav" id="sidebarNav">
             <!-- Navigation items will be generated dynamically -->
@@ -464,9 +511,9 @@
                 </div>
             
     <div class="main-wrapper" id="mainWrapper">
-    <header class="header">
+    <!-- <header class="header">
         <h1>Fey Web UI Flows</h1>
-    </header>
+    </header> -->
             
         <main class="container" id="mainContent">
             <!-- Flow sections will be generated dynamically -->
@@ -520,6 +567,7 @@
             renderAllFlows();
             updateStats();
             initializeNavigation();
+            initializeSearch();
         }
         
         // Render sidebar navigation
@@ -841,6 +889,56 @@
                 btn.classList.remove('active');
                 if (parseInt(btn.getAttribute('data-cols')) === cols) {
                     btn.classList.add('active');
+                }
+            });
+        }
+        
+        // Initialize search functionality
+        function initializeSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchResultsInfo = document.getElementById('searchResultsInfo');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase().trim();
+                
+                if (searchTerm === '') {
+                    // Show all items
+                    navItems.forEach(item => {
+                        item.classList.remove('hidden');
+                    });
+                    searchResultsInfo.textContent = '';
+                    return;
+                }
+                
+                // Filter items
+                let visibleCount = 0;
+                navItems.forEach(item => {
+                    const flowTitle = item.textContent.toLowerCase();
+                    if (flowTitle.includes(searchTerm)) {
+                        item.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+                
+                // Update results info
+                if (visibleCount === 0) {
+                    searchResultsInfo.textContent = 'No flows found';
+                } else if (visibleCount === 1) {
+                    searchResultsInfo.textContent = '1 flow found';
+                } else {
+                    searchResultsInfo.textContent = `${visibleCount} flows found`;
+                }
+            });
+            
+            // Clear search on Escape key
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    searchInput.value = '';
+                    searchInput.dispatchEvent(new Event('input'));
+                    searchInput.blur();
                 }
             });
         }

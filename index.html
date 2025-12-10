@@ -643,6 +643,7 @@
             // Highlight active section on scroll
             function updateActiveNav() {
                 const sections = document.querySelectorAll('.flow-section');
+                const sidebarNav = document.getElementById('sidebarNav');
                 let current = '';
                 
                 sections.forEach(section => {
@@ -658,24 +659,29 @@
                     if (item.getAttribute('href') === '#' + current) {
                         item.classList.add('active');
                         
-                        // Scroll sidebar to show active item
-                        const sidebar = document.getElementById('sidebar');
+                        // Scroll sidebar nav to show active item
                         const itemTop = item.offsetTop;
                         const itemHeight = item.offsetHeight;
-                        const sidebarScrollTop = sidebar.scrollTop;
-                        const sidebarHeight = sidebar.clientHeight;
+                        const navScrollTop = sidebarNav.scrollTop;
+                        const navHeight = sidebarNav.clientHeight;
+                        
+                        // Get the offset of the nav container relative to the sidebar
+                        const navOffsetTop = sidebarNav.offsetTop;
+                        
+                        // Calculate item position relative to the nav container
+                        const itemRelativeTop = itemTop - navOffsetTop;
                         
                         // Check if item is outside visible area
-                        if (itemTop < sidebarScrollTop + 100) {
+                        if (itemRelativeTop < navScrollTop + 50) {
                             // Item is above visible area
-                            sidebar.scrollTo({
-                                top: itemTop - 100,
+                            sidebarNav.scrollTo({
+                                top: itemRelativeTop - 50,
                                 behavior: 'smooth'
                             });
-                        } else if (itemTop + itemHeight > sidebarScrollTop + sidebarHeight - 100) {
+                        } else if (itemRelativeTop + itemHeight > navScrollTop + navHeight - 50) {
                             // Item is below visible area
-                            sidebar.scrollTo({
-                                top: itemTop - sidebarHeight + itemHeight + 100,
+                            sidebarNav.scrollTo({
+                                top: itemRelativeTop - navHeight + itemHeight + 50,
                                 behavior: 'smooth'
                             });
                         }

@@ -321,6 +321,11 @@
         .modal-nav-next {
             right: 1.5rem;
         }
+
+        .size-6 {
+            width: 24px;
+            height: 24px;
+        }
         
         .modal-counter {
             position: absolute;
@@ -371,8 +376,14 @@
     <!-- Modal for full-size viewing -->
     <div class="modal" id="imageModal">
         <button class="modal-close" onclick="closeModal()" type="button">&times;</button>
-        <button class="modal-nav modal-nav-prev" onclick="navigateImage(-1)" type="button">‹</button>
-        <button class="modal-nav modal-nav-next" onclick="navigateImage(1)" type="button">›</button>
+        <button class="modal-nav modal-nav-prev" onclick="navigateImage(-1)" type="button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+          </svg>
+          </button>
+        <button class="modal-nav modal-nav-next" onclick="navigateImage(1)" type="button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+          </button>
         <img class="modal-content" id="modalImage" alt="Full size image">
         <div class="modal-counter" id="modalCounter"></div>
                 </div>
@@ -382,9 +393,6 @@
         // Load and render flows from flows.js
         let flowsData = [];
         let allImageCards = [];
-        let renderedFlows = new Set(); // Track which flows have been rendered
-        let currentFlowIndex = 0; // Track current flow for infinite scroll
-        let isLoadingFlow = false; // Prevent multiple simultaneous loads
         
         // Function to create a slug from full_title for IDs
         function slugify(text) {
@@ -407,64 +415,9 @@
             }
             
             renderSidebar();
+            renderAllFlows();
             updateStats();
             initializeNavigation();
-            
-            // Render first flow by default
-            if (flowsData.length > 0) {
-                renderFlow(flowsData[0]);
-                currentFlowIndex = 0;
-            }
-            
-            // Set up infinite scroll
-            setupInfiniteScroll();
-        }
-        
-        // Set up infinite scroll
-        function setupInfiniteScroll() {
-            let scrollTimeout;
-            
-            window.addEventListener('scroll', function() {
-                // Debounce scroll events
-                clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(() => {
-                    checkAndLoadNextFlow();
-                }, 100);
-            });
-        }
-        
-        // Check if we should load the next flow
-        function checkAndLoadNextFlow() {
-            if (isLoadingFlow) return;
-            
-            // Check if we're near the bottom of the page
-            const scrollPosition = window.scrollY + window.innerHeight;
-            const pageHeight = document.documentElement.scrollHeight;
-            const threshold = 800; // Load next flow when 800px from bottom
-            
-            if (scrollPosition >= pageHeight - threshold) {
-                loadNextFlow();
-            }
-        }
-        
-        // Load the next flow in sequence
-        function loadNextFlow() {
-            if (isLoadingFlow) return;
-            
-            const nextIndex = currentFlowIndex + 1;
-            
-            if (nextIndex < flowsData.length) {
-                isLoadingFlow = true;
-                const nextFlow = flowsData[nextIndex];
-                
-                renderFlow(nextFlow, false); // Don't scroll to it
-                currentFlowIndex = nextIndex;
-                
-                // Reset loading flag after a short delay
-                setTimeout(() => {
-                    isLoadingFlow = false;
-                }, 300);
-            }
         }
         
         // Render sidebar navigation
@@ -482,82 +435,61 @@
             });
         }
         
-        // Render a single flow section
-        function renderFlow(flow, shouldScroll = true) {
-            const flowId = slugify(flow.full_title);
-            
-            // Check if flow is already rendered
-            if (renderedFlows.has(flowId)) {
-                // Scroll to existing section if requested
-                if (shouldScroll) {
-                    const existingSection = document.getElementById(flowId);
-                    if (existingSection) {
-                        existingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                }
-                return;
-            }
-            
+        // Render all flows at once
+        function renderAllFlows() {
             const mainContent = document.getElementById('mainContent');
+            mainContent.innerHTML = '';
+            allImageCards = [];
             
-            const section = document.createElement('section');
-            section.className = 'flow-section';
-            section.id = flowId;
-            
-            const flowHeader = document.createElement('div');
-            flowHeader.className = 'flow-header';
-            
-            const titleContainer = document.createElement('div');
-            titleContainer.className = 'flow-title-container';
-            
-            const title = document.createElement('h2');
-            title.className = 'flow-title';
-            title.textContent = flow.full_title;
-            
-            const flowIdSpan = document.createElement('span');
-            flowIdSpan.className = 'flow-id';
-            flowIdSpan.textContent = flow.flow_id.split('-')[0];
-            
-            titleContainer.appendChild(title);
-            titleContainer.appendChild(flowIdSpan);
-            flowHeader.appendChild(titleContainer);
-            
-            const imageGrid = document.createElement('div');
-            imageGrid.className = 'image-grid';
-            
-            flow.images.forEach((image, imageIndex) => {
-                const imageCard = document.createElement('div');
-                imageCard.className = 'image-card';
-                imageCard.setAttribute('data-img-url', image.local_path);
-                imageCard.setAttribute('data-img-alt', image.alt);
+            flowsData.forEach((flow, flowIndex) => {
+                const flowId = slugify(flow.full_title);
                 
-                const img = document.createElement('img');
-                img.src = image.local_path;
-                img.alt = image.alt;
-                img.loading = 'lazy';
+                const section = document.createElement('section');
+                section.className = 'flow-section';
+                section.id = flowId;
                 
-                imageCard.appendChild(img);
-                imageGrid.appendChild(imageCard);
+                const flowHeader = document.createElement('div');
+                flowHeader.className = 'flow-header';
                 
-                allImageCards.push(imageCard);
+                const titleContainer = document.createElement('div');
+                titleContainer.className = 'flow-title-container';
+                
+                const title = document.createElement('h2');
+                title.className = 'flow-title';
+                title.textContent = flow.full_title;
+                
+                const flowIdSpan = document.createElement('span');
+                flowIdSpan.className = 'flow-id';
+                flowIdSpan.textContent = flow.flow_id.split('-')[0];
+                
+                titleContainer.appendChild(title);
+                titleContainer.appendChild(flowIdSpan);
+                flowHeader.appendChild(titleContainer);
+                
+                const imageGrid = document.createElement('div');
+                imageGrid.className = 'image-grid';
+                
+                flow.images.forEach((image, imageIndex) => {
+                    const imageCard = document.createElement('div');
+                    imageCard.className = 'image-card';
+                    imageCard.setAttribute('data-img-url', image.local_path);
+                    imageCard.setAttribute('data-img-alt', image.alt);
+                    
+                    const img = document.createElement('img');
+                    img.src = image.local_path;
+                    img.alt = image.alt;
+                    img.loading = 'lazy';
+                    
+                    imageCard.appendChild(img);
+                    imageGrid.appendChild(imageCard);
+                    
+                    allImageCards.push(imageCard);
+                });
+                
+                section.appendChild(flowHeader);
+                section.appendChild(imageGrid);
+                mainContent.appendChild(section);
             });
-            
-            section.appendChild(flowHeader);
-            section.appendChild(imageGrid);
-            mainContent.appendChild(section);
-            
-            // Mark as rendered
-            renderedFlows.add(flowId);
-            
-            // Re-initialize image modal to include new cards
-            initializeImageModal();
-            
-            // Scroll to the new section if requested
-            if (shouldScroll) {
-                setTimeout(() => {
-                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 50);
-            }
         }
         
         // Update stats
@@ -592,16 +524,15 @@
             // Make toggleSidebar available globally
             window.toggleSidebar = toggleSidebar;
             
-            // Render flow when sidebar item is clicked
+            // Scroll to flow when sidebar item is clicked
             navItems.forEach(item => {
                 item.addEventListener('click', (e) => {
                     e.preventDefault();
-                    const flowIndex = parseInt(item.getAttribute('data-flow-index'));
-                    const flow = flowsData[flowIndex];
+                    const targetId = item.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
                     
-                    if (flow) {
-                        renderFlow(flow, true); // Scroll to clicked flow
-                        currentFlowIndex = flowIndex; // Update current index
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                     
                     // Close sidebar on mobile

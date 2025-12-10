@@ -27,32 +27,17 @@
             position: fixed;
             left: 0;
             top: 0;
-            overflow-y: auto;
             border-right: 1px solid #2d2d2d;
             z-index: 100;
             transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         
         .sidebar.collapsed {
             transform: translateX(-300px);
         }
         
-        .sidebar::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        .sidebar::-webkit-scrollbar-track {
-            background: #1e1e1e;
-        }
-        
-        .sidebar::-webkit-scrollbar-thumb {
-            background: #3d3d3d;
-            border-radius: 4px;
-        }
-        
-        .sidebar::-webkit-scrollbar-thumb:hover {
-            background: #4d4d4d;
-        }
         
         .sidebar-header {
             padding: 1.5rem;
@@ -76,7 +61,9 @@
         
         .sidebar-controls {
             padding: 1rem 1.25rem;
-            border-bottom: 1px solid #2d2d2d;
+            border-top: 1px solid #2d2d2d;
+            background: #1a1a1a;
+            flex-shrink: 0;
         }
         
         .sidebar-controls-label {
@@ -109,13 +96,32 @@
         }
         
         .sidebar-grid-btn.active {
-            background: #4a9eff;
-            color: #ffffff;
-            border-color: #4a9eff;
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
         }
         
         .sidebar-nav {
             padding: 0.5rem 0;
+            flex: 1;
+            overflow-y: auto;
+        }
+        
+        .sidebar-nav::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .sidebar-nav::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+        
+        .sidebar-nav::-webkit-scrollbar-thumb {
+            background: #3d3d3d;
+            border-radius: 4px;
+        }
+        
+        .sidebar-nav::-webkit-scrollbar-thumb:hover {
+            background: #4d4d4d;
         }
         
         .nav-item {
@@ -141,7 +147,7 @@
         .nav-item.active {
             background: #2a2a2a;
             color: #ffffff;
-            border-left-color: #4a9eff;
+            border-left-color: #ffffff;
         }
         
         .sidebar-toggle {
@@ -444,6 +450,9 @@
                 <span id="sidebarScreenCount">238 screens</span>
                     </div>
                 </div>
+        <nav class="sidebar-nav" id="sidebarNav">
+            <!-- Navigation items will be generated dynamically -->
+        </nav>
         <div class="sidebar-controls">
             <span class="sidebar-controls-label">Grid Columns</span>
             <div class="sidebar-grid-buttons">
@@ -452,9 +461,6 @@
                 <button type="button" class="sidebar-grid-btn" data-cols="3" onclick="setGridColumns(3)">3</button>
                 </div>
                 </div>
-        <nav class="sidebar-nav" id="sidebarNav">
-            <!-- Navigation items will be generated dynamically -->
-        </nav>
                 </div>
             
     <div class="main-wrapper" id="mainWrapper">

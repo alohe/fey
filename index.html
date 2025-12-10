@@ -382,6 +382,7 @@
         // Load and render flows from flows.js
         let flowsData = [];
         let allImageCards = [];
+        let renderedFlows = new Set(); // Track which flows have been rendered
         
         // Function to create a slug from full_title for IDs
         function slugify(text) {
@@ -404,9 +405,13 @@
             }
             
             renderSidebar();
-            renderFlows();
             updateStats();
             initializeNavigation();
+            
+            // Render first flow by default
+            if (flowsData.length > 0) {
+                renderFlow(flowsData[0]);
+            }
         }
         
         // Render sidebar navigation
@@ -419,63 +424,83 @@
                 navItem.href = `#${slugify(flow.full_title)}`;
                 navItem.className = 'nav-item';
                 navItem.textContent = flow.full_title;
+                navItem.setAttribute('data-flow-index', index);
                 sidebarNav.appendChild(navItem);
             });
         }
         
-        // Render flow sections
-        function renderFlows() {
-            const mainContent = document.getElementById('mainContent');
-            mainContent.innerHTML = '';
-            allImageCards = [];
+        // Render a single flow section
+        function renderFlow(flow) {
+            const flowId = slugify(flow.full_title);
             
-            flowsData.forEach((flow, flowIndex) => {
-                const section = document.createElement('section');
-                section.className = 'flow-section';
-                section.id = slugify(flow.full_title);
+            // Check if flow is already rendered
+            if (renderedFlows.has(flowId)) {
+                // Scroll to existing section
+                const existingSection = document.getElementById(flowId);
+                if (existingSection) {
+                    existingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                return;
+            }
+            
+            const mainContent = document.getElementById('mainContent');
+            
+            const section = document.createElement('section');
+            section.className = 'flow-section';
+            section.id = flowId;
+            
+            const flowHeader = document.createElement('div');
+            flowHeader.className = 'flow-header';
+            
+            const titleContainer = document.createElement('div');
+            titleContainer.className = 'flow-title-container';
+            
+            const title = document.createElement('h2');
+            title.className = 'flow-title';
+            title.textContent = flow.full_title;
+            
+            const flowIdSpan = document.createElement('span');
+            flowIdSpan.className = 'flow-id';
+            flowIdSpan.textContent = flow.flow_id.split('-')[0];
+            
+            titleContainer.appendChild(title);
+            titleContainer.appendChild(flowIdSpan);
+            flowHeader.appendChild(titleContainer);
+            
+            const imageGrid = document.createElement('div');
+            imageGrid.className = 'image-grid';
+            
+            flow.images.forEach((image, imageIndex) => {
+                const imageCard = document.createElement('div');
+                imageCard.className = 'image-card';
+                imageCard.setAttribute('data-img-url', image.local_path);
+                imageCard.setAttribute('data-img-alt', image.alt);
                 
-                const flowHeader = document.createElement('div');
-                flowHeader.className = 'flow-header';
+                const img = document.createElement('img');
+                img.src = image.local_path;
+                img.alt = image.alt;
+                img.loading = 'lazy';
                 
-                const titleContainer = document.createElement('div');
-                titleContainer.className = 'flow-title-container';
+                imageCard.appendChild(img);
+                imageGrid.appendChild(imageCard);
                 
-                const title = document.createElement('h2');
-                title.className = 'flow-title';
-                title.textContent = flow.full_title;
-                
-                const flowId = document.createElement('span');
-                flowId.className = 'flow-id';
-                flowId.textContent = flow.flow_id.split('-')[0];
-                
-                titleContainer.appendChild(title);
-                titleContainer.appendChild(flowId);
-                flowHeader.appendChild(titleContainer);
-                
-                const imageGrid = document.createElement('div');
-                imageGrid.className = 'image-grid';
-                
-                flow.images.forEach((image, imageIndex) => {
-                    const imageCard = document.createElement('div');
-                    imageCard.className = 'image-card';
-                    imageCard.setAttribute('data-img-url', image.local_path);
-                    imageCard.setAttribute('data-img-alt', image.alt);
-                    
-                    const img = document.createElement('img');
-                    img.src = image.local_path;
-                    img.alt = image.alt;
-                    img.loading = 'lazy';
-                    
-                    imageCard.appendChild(img);
-                    imageGrid.appendChild(imageCard);
-                    
-                    allImageCards.push(imageCard);
-                });
-                
-                section.appendChild(flowHeader);
-                section.appendChild(imageGrid);
-                mainContent.appendChild(section);
+                allImageCards.push(imageCard);
             });
+            
+            section.appendChild(flowHeader);
+            section.appendChild(imageGrid);
+            mainContent.appendChild(section);
+            
+            // Mark as rendered
+            renderedFlows.add(flowId);
+            
+            // Re-initialize image modal to include new cards
+            initializeImageModal();
+            
+            // Scroll to the new section
+            setTimeout(() => {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
         }
         
         // Update stats
@@ -510,15 +535,15 @@
             // Make toggleSidebar available globally
             window.toggleSidebar = toggleSidebar;
             
-            // Smooth scroll to section
+            // Render flow when sidebar item is clicked
             navItems.forEach(item => {
                 item.addEventListener('click', (e) => {
                     e.preventDefault();
-                    const targetId = item.getAttribute('href').substring(1);
-                    const targetSection = document.getElementById(targetId);
+                    const flowIndex = parseInt(item.getAttribute('data-flow-index'));
+                    const flow = flowsData[flowIndex];
                     
-                    if (targetSection) {
-                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    if (flow) {
+                        renderFlow(flow);
                     }
                     
                     // Close sidebar on mobile
@@ -529,9 +554,8 @@
             });
             
             // Highlight active section on scroll
-            const sections = document.querySelectorAll('.flow-section');
-            
             function updateActiveNav() {
+                const sections = document.querySelectorAll('.flow-section');
                 let current = '';
                 
                 sections.forEach(section => {
@@ -553,16 +577,20 @@
             window.addEventListener('scroll', updateActiveNav);
             updateActiveNav();
             
-            // Initialize image modal after rendering
-            initializeImageModal();
+            // Initialize image modal (only once)
+            if (!modalInitialized) {
+                initializeImageModal();
+            }
         }
         
         // Initialize image modal functionality
+        let currentImageIndex = 0;
+        let modalInitialized = false;
+        
         function initializeImageModal() {
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImage');
         const modalCounter = document.getElementById('modalCounter');
-        let currentImageIndex = 0;
         
         function openModal(index) {
             currentImageIndex = index;
@@ -596,7 +624,7 @@
             
             function updateModalCounter() {
                 modalCounter.textContent = `${currentImageIndex + 1} / ${allImageCards.length}`;
-            }
+        }
         
         // Navigate to next/previous image
         function navigateImage(direction) {
@@ -610,18 +638,13 @@
         function closeModal() {
             modal.classList.remove('active');
         }
-            
+        
             // Make functions available globally
             window.navigateImage = navigateImage;
             window.closeModal = closeModal;
-        
-        // Add click listeners to image cards
-            allImageCards.forEach((card, index) => {
-            card.addEventListener('click', function() {
-                openModal(index);
-            });
-        });
-        
+            
+            // Only set up event listeners once
+            if (!modalInitialized) {
         // Close modal on click outside image
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
@@ -645,6 +668,21 @@
                     break;
             }
         });
+                
+                modalInitialized = true;
+            }
+            
+            // Add click listeners to all image cards (including newly added ones)
+            allImageCards.forEach((card, index) => {
+                // Remove existing listener if any, then add new one
+                const newCard = card.cloneNode(true);
+                card.parentNode.replaceChild(newCard, card);
+                allImageCards[index] = newCard;
+                
+                newCard.addEventListener('click', function() {
+                    openModal(index);
+                });
+            });
         }
         
         // Load flows when page loads

@@ -16,12 +16,100 @@
             background: #000000;
             color: #ffffff;
             line-height: 1.6;
+            display: flex;
+            margin: 0;
+        }
+        
+        .sidebar {
+            width: 280px;
+            background: #1e1e1e;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            border-right: 1px solid #2d2d2d;
+            z-index: 100;
+        }
+        
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .sidebar::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb {
+            background: #3d3d3d;
+            border-radius: 4px;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: #4d4d4d;
+        }
+        
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #2d2d2d;
+        }
+        
+        .sidebar-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0;
+        }
+        
+        .sidebar-subtitle {
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 0.25rem;
+        }
+        
+        .sidebar-nav {
+            padding: 0.5rem 0;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 0.625rem 1.25rem;
+            color: #b4b4b4;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.15s;
+            cursor: pointer;
+            border-left: 2px solid transparent;
+        }
+        
+        .nav-item:hover {
+            background: #2a2a2a;
+            color: #ffffff;
+        }
+        
+        .nav-item.active {
+            background: #2a2a2a;
+            color: #ffffff;
+            border-left-color: #4a9eff;
+        }
+        
+        .nav-item-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 0.75rem;
+            opacity: 0.6;
+        }
+        
+        .main-wrapper {
+            margin-left: 280px;
+            width: calc(100% - 280px);
         }
         
         .header {
             background: #000000;
             padding: 2rem;
-            border-bottom: 1px solid #ffffff29;
+            border-bottom: 1px solid #2d2d2d;
         }
         
         .header h1 {
@@ -42,6 +130,40 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 2rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-wrapper {
+                margin-left: 0;
+                width: 100%;
+            }
+            
+            .mobile-menu-btn {
+                display: block !important;
+            }
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 101;
+            background: #1e1e1e;
+            border: 1px solid #2d2d2d;
+            border-radius: 8px;
+            padding: 0.75rem;
+            cursor: pointer;
+            color: #ffffff;
         }
         
         .flow-section {
@@ -78,110 +200,6 @@
             display: none;
         }
         
-        .nav-sidebar {
-            position: fixed;
-            right: 2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid #ffffff29;
-            border-radius: 10px;
-            padding: 1rem;
-            max-height: 80vh;
-            overflow-y: auto;
-            z-index: 100;
-            display: none;
-        }
-        
-        .nav-sidebar.active {
-            display: block;
-        }
-        
-        .nav-sidebar::-webkit-scrollbar {
-            width: 6px;
-        }
-        
-        .nav-sidebar::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        
-        .nav-sidebar::-webkit-scrollbar-thumb {
-            background: #ffffff29;
-            border-radius: 3px;
-        }
-        
-        .nav-sidebar::-webkit-scrollbar-thumb:hover {
-            background: #ffffff4d;
-        }
-        
-        .nav-item {
-            display: block;
-            padding: 0.5rem 0.75rem;
-            color: #ffffff99;
-            text-decoration: none;
-            font-size: 0.875rem;
-            border-radius: 6px;
-            transition: all 0.2s;
-            white-space: nowrap;
-            margin-bottom: 0.25rem;
-        }
-        
-        .nav-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-        }
-        
-        .nav-item.active {
-            background: rgba(255, 255, 255, 0.15);
-            color: #ffffff;
-        }
-        
-        .nav-toggle {
-            position: fixed;
-            right: 2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid #ffffff29;
-            border-radius: 10px;
-            padding: 0.75rem;
-            cursor: pointer;
-            z-index: 99;
-            color: #ffffff;
-            transition: all 0.2s;
-        }
-        
-        .nav-toggle:hover {
-            background: rgba(0, 0, 0, 0.9);
-            border-color: #ffffff4d;
-        }
-        
-        .nav-toggle.hidden {
-            display: none;
-        }
-        
-        @media (max-width: 1024px) {
-            .nav-sidebar {
-                right: 1rem;
-                max-width: 200px;
-            }
-            
-            .nav-toggle {
-                right: 1rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-sidebar {
-                display: none !important;
-            }
-            
-            .nav-toggle {
-                display: none !important;
-            }
-        }
         
         .image-grid {
             display: grid;
@@ -318,1671 +336,37 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1>Fey Web UI Flows</h1>
-        <div class="stats">
-            <span>53 flows</span>
-            <span>·</span>
-            <span>238 screens</span>
-        </div>
-    </header>
-    
-    <button class="nav-toggle" type="button" onclick="toggleNav()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
-            <title>Toggle navigation</title>
-            <line x1="3" y1="5" x2="17" y2="5" stroke-width="2"/>
-            <line x1="3" y1="10" x2="17" y2="10" stroke-width="2"/>
-            <line x1="3" y1="15" x2="17" y2="15" stroke-width="2"/>
+    <button type="button" class="mobile-menu-btn" onclick="toggleSidebar()">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <title>Menu</title>
+            <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
     </button>
     
-    <nav class="nav-sidebar" id="navSidebar">
-        <a href="#flow-1" class="nav-item">Onboarding</a>
-        <a href="#flow-2" class="nav-item">Starting a trial</a>
-        <a href="#flow-3" class="nav-item">Home</a>
-        <a href="#flow-4" class="nav-item">Markets</a>
-        <a href="#flow-5" class="nav-item">Stock detail</a>
-        <a href="#flow-6" class="nav-item">Analyzing a stock</a>
-        <a href="#flow-7" class="nav-item">Comparing stock metrics</a>
-        <a href="#flow-8" class="nav-item">Sharing a stock</a>
-        <a href="#flow-9" class="nav-item">Saving to watchlist</a>
-        <a href="#flow-10" class="nav-item">News summary</a>
-        <a href="#flow-11" class="nav-item">Analyst estimates</a>
-        <a href="#flow-12" class="nav-item">Filtering analyst estimates</a>
-        <a href="#flow-13" class="nav-item">Stock earnings</a>
-        <a href="#flow-14" class="nav-item">Financial stats</a>
-        <a href="#flow-15" class="nav-item">Comparing financial metrics</a>
-        <a href="#flow-16" class="nav-item">Peer analysis</a>
-        <a href="#flow-17" class="nav-item">Editing peers list</a>
-        <a href="#flow-18" class="nav-item">Analysis</a>
-        <a href="#flow-19" class="nav-item">Earnings calendar</a>
-        <a href="#flow-20" class="nav-item">Portfolio</a>
-        <a href="#flow-21" class="nav-item">Connect to an app</a>
-        <a href="#flow-22" class="nav-item">Moving stocks to a list</a>
-        <a href="#flow-23" class="nav-item">Deleting a stock</a>
-        <a href="#flow-24" class="nav-item">Screener</a>
-        <a href="#flow-25" class="nav-item">Filtering stocks</a>
-        <a href="#flow-26" class="nav-item">Saving a filter as template</a>
-        <a href="#flow-27" class="nav-item">Sorting stocks</a>
-        <a href="#flow-28" class="nav-item">Filtering with template</a>
-        <a href="#flow-29" class="nav-item">Searching Fey</a>
-        <a href="#flow-30" class="nav-item">Watchlist</a>
-        <a href="#flow-31" class="nav-item">Saving stocks</a>
-        <a href="#flow-32" class="nav-item">Creating a list</a>
-        <a href="#flow-33" class="nav-item">Deleting a list</a>
-        <a href="#flow-34" class="nav-item">Sorting stocks (watchlist)</a>
-        <a href="#flow-35" class="nav-item">Reordering stocks</a>
-        <a href="#flow-36" class="nav-item">Settings</a>
-        <a href="#flow-37" class="nav-item">Updating an account name</a>
-        <a href="#flow-38" class="nav-item">Hiding navigation options</a>
-        <a href="#flow-39" class="nav-item">Disabling newsletter</a>
-        <a href="#flow-40" class="nav-item">Searching for shortcuts</a>
-        <a href="#flow-41" class="nav-item">Sending feedback</a>
-        <a href="#flow-42" class="nav-item">Referring a friend</a>
-        <a href="#flow-43" class="nav-item">Canceling a subscription</a>
-        <a href="#flow-44" class="nav-item">Claiming a referral</a>
-        <a href="#flow-45" class="nav-item">Logging out</a>
-        <a href="#flow-46" class="nav-item">Logging in</a>
-        <a href="#flow-47" class="nav-item">Landing page</a>
-        <a href="#flow-48" class="nav-item">Insights</a>
-        <a href="#flow-49" class="nav-item">Features</a>
-        <a href="#flow-50" class="nav-item">Pricing</a>
-        <a href="#flow-51" class="nav-item">Updates</a>
-        <a href="#flow-52" class="nav-item">App</a>
-        <a href="#flow-53" class="nav-item">Privacy</a>
-    </nav>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2 class="sidebar-title">Flow Gallery</h2>
+            <div class="sidebar-subtitle">53 flows</div>
+        </div>
+        <nav class="sidebar-nav" id="sidebarNav">
+            <!-- Navigation items will be generated dynamically -->
+        </nav>
+    </div>
     
-    <main class="container">
+    <div class="main-wrapper">
+        <header class="header">
+            <h1>Fey Web UI Flows</h1>
+            <div class="stats">
+                <span>53 flows</span>
+                <span>·</span>
+                <span>238 screens</span>
+            </div>
+        </header>
         
-            <section class="flow-section" id="flow-1">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Onboarding in Fey Web</h2>
-                        <span class="flow-id">1328af10</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_001_1328af10/screen_02.jpg" data-img-alt="Screen 1 of 15 of the Onboarding flow on the Fey Web app.">
-                    <img src="images/flow_001_1328af10/screen_02.jpg" alt="Screen 1 of 15 of the Onboarding flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_001_1328af10/screen_03.jpg" data-img-alt="Screen 2 of 15 of the Onboarding flow on the Fey Web app.">
-                    <img src="images/flow_001_1328af10/screen_03.jpg" alt="Screen 2 of 15 of the Onboarding flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_001_1328af10/screen_04.jpg" data-img-alt="Screen 3 of 15 of the Onboarding flow on the Fey Web app.">
-                    <img src="images/flow_001_1328af10/screen_04.jpg" alt="Screen 3 of 15 of the Onboarding flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_001_1328af10/screen_05.jpg" data-img-alt="Screen 4 of 15 of the Onboarding flow on the Fey Web app.">
-                    <img src="images/flow_001_1328af10/screen_05.jpg" alt="Screen 4 of 15 of the Onboarding flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_001_1328af10/screen_06.jpg" data-img-alt="Screen 5 of 15 of the Onboarding flow on the Fey Web app.">
-                    <img src="images/flow_001_1328af10/screen_06.jpg" alt="Screen 5 of 15 of the Onboarding flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_001_1328af10/screen_07.jpg" data-img-alt="Screen 6 of 15 of the Onboarding flow on the Fey Web app.">
-                    <img src="images/flow_001_1328af10/screen_07.jpg" alt="Screen 6 of 15 of the Onboarding flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_001_1328af10/screen_08.jpg" data-img-alt="Screen 7 of 15 of the Onboarding flow on the Fey Web app.">
-                    <img src="images/flow_001_1328af10/screen_08.jpg" alt="Screen 7 of 15 of the Onboarding flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_001_1328af10/screen_09.jpg" data-img-alt="Screen 8 of 15 of the Onboarding flow on the Fey Web app.">
-                    <img src="images/flow_001_1328af10/screen_09.jpg" alt="Screen 8 of 15 of the Onboarding flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_001_1328af10/screen_10.jpg" data-img-alt="Screen 9 of 15 of the Onboarding flow on the Fey Web app.">
-                    <img src="images/flow_001_1328af10/screen_10.jpg" alt="Screen 9 of 15 of the Onboarding flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_001_1328af10/screen_11.jpg" data-img-alt="Screen 10 of 15 of the Onboarding flow on the Fey Web app.">
-                    <img src="images/flow_001_1328af10/screen_11.jpg" alt="Screen 10 of 15 of the Onboarding flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_001_1328af10/screen_12.jpg" data-img-alt="Screen 11 of 15 of the Onboarding flow on the Fey Web app.">
-                    <img src="images/flow_001_1328af10/screen_12.jpg" alt="Screen 11 of 15 of the Onboarding flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_001_1328af10/screen_13.jpg" data-img-alt="Screen 12 of 15 of the Onboarding flow on the Fey Web app.">
-                    <img src="images/flow_001_1328af10/screen_13.jpg" alt="Screen 12 of 15 of the Onboarding flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_001_1328af10/screen_14.jpg" data-img-alt="Screen 13 of 15 of the Onboarding flow on the Fey Web app.">
-                    <img src="images/flow_001_1328af10/screen_14.jpg" alt="Screen 13 of 15 of the Onboarding flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_001_1328af10/screen_15.jpg" data-img-alt="Screen 14 of 15 of the Onboarding flow on the Fey Web app.">
-                    <img src="images/flow_001_1328af10/screen_15.jpg" alt="Screen 14 of 15 of the Onboarding flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_001_1328af10/screen_16.jpg" data-img-alt="Screen 15 of 15 of the Onboarding flow on the Fey Web app.">
-                    <img src="images/flow_001_1328af10/screen_16.jpg" alt="Screen 15 of 15 of the Onboarding flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-2">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Starting a trial in Fey Web</h2>
-                        <span class="flow-id">4a047c92</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_002_4a047c92/screen_02.jpg" data-img-alt="Screen 1 of 6 of the Starting a trial flow on the Fey Web app.">
-                    <img src="images/flow_002_4a047c92/screen_02.jpg" alt="Screen 1 of 6 of the Starting a trial flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_002_4a047c92/screen_03.jpg" data-img-alt="Screen 2 of 6 of the Starting a trial flow on the Fey Web app.">
-                    <img src="images/flow_002_4a047c92/screen_03.jpg" alt="Screen 2 of 6 of the Starting a trial flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_002_4a047c92/screen_04.jpg" data-img-alt="Screen 3 of 6 of the Starting a trial flow on the Fey Web app.">
-                    <img src="images/flow_002_4a047c92/screen_04.jpg" alt="Screen 3 of 6 of the Starting a trial flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_002_4a047c92/screen_05.jpg" data-img-alt="Screen 4 of 6 of the Starting a trial flow on the Fey Web app.">
-                    <img src="images/flow_002_4a047c92/screen_05.jpg" alt="Screen 4 of 6 of the Starting a trial flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_002_4a047c92/screen_06.jpg" data-img-alt="Screen 5 of 6 of the Starting a trial flow on the Fey Web app.">
-                    <img src="images/flow_002_4a047c92/screen_06.jpg" alt="Screen 5 of 6 of the Starting a trial flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_002_4a047c92/screen_07.jpg" data-img-alt="Screen 6 of 6 of the Starting a trial flow on the Fey Web app.">
-                    <img src="images/flow_002_4a047c92/screen_07.jpg" alt="Screen 6 of 6 of the Starting a trial flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Home in Fey Web</h2>
-                        <span class="flow-id">e78d4296</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_003_e78d4296/screen_02.jpg" data-img-alt="Screen 1 of 3 of the Home flow on the Fey Web app.">
-                    <img src="images/flow_003_e78d4296/screen_02.jpg" alt="Screen 1 of 3 of the Home flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_003_e78d4296/screen_03.jpg" data-img-alt="Screen 2 of 3 of the Home flow on the Fey Web app.">
-                    <img src="images/flow_003_e78d4296/screen_03.jpg" alt="Screen 2 of 3 of the Home flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_003_e78d4296/screen_04.jpg" data-img-alt="Screen 3 of 3 of the Home flow on the Fey Web app.">
-                    <img src="images/flow_003_e78d4296/screen_04.jpg" alt="Screen 3 of 3 of the Home flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Markets in Fey Web</h2>
-                        <span class="flow-id">62c615eb</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_004_62c615eb/screen_02.jpg" data-img-alt="Screen 1 of 2 of the Markets flow on the Fey Web app.">
-                    <img src="images/flow_004_62c615eb/screen_02.jpg" alt="Screen 1 of 2 of the Markets flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_004_62c615eb/screen_03.jpg" data-img-alt="Screen 2 of 2 of the Markets flow on the Fey Web app.">
-                    <img src="images/flow_004_62c615eb/screen_03.jpg" alt="Screen 2 of 2 of the Markets flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Stock detail in Fey Web</h2>
-                        <span class="flow-id">19cf6237</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_005_19cf6237/screen_02.jpg" data-img-alt="Screen 1 of 10 of the Stock detail flow on the Fey Web app.">
-                    <img src="images/flow_005_19cf6237/screen_02.jpg" alt="Screen 1 of 10 of the Stock detail flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_005_19cf6237/screen_03.jpg" data-img-alt="Screen 2 of 10 of the Stock detail flow on the Fey Web app.">
-                    <img src="images/flow_005_19cf6237/screen_03.jpg" alt="Screen 2 of 10 of the Stock detail flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_005_19cf6237/screen_04.jpg" data-img-alt="Screen 3 of 10 of the Stock detail flow on the Fey Web app.">
-                    <img src="images/flow_005_19cf6237/screen_04.jpg" alt="Screen 3 of 10 of the Stock detail flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_005_19cf6237/screen_05.jpg" data-img-alt="Screen 4 of 10 of the Stock detail flow on the Fey Web app.">
-                    <img src="images/flow_005_19cf6237/screen_05.jpg" alt="Screen 4 of 10 of the Stock detail flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_005_19cf6237/screen_06.jpg" data-img-alt="Screen 5 of 10 of the Stock detail flow on the Fey Web app.">
-                    <img src="images/flow_005_19cf6237/screen_06.jpg" alt="Screen 5 of 10 of the Stock detail flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_005_19cf6237/screen_07.jpg" data-img-alt="Screen 6 of 10 of the Stock detail flow on the Fey Web app.">
-                    <img src="images/flow_005_19cf6237/screen_07.jpg" alt="Screen 6 of 10 of the Stock detail flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_005_19cf6237/screen_08.jpg" data-img-alt="Screen 7 of 10 of the Stock detail flow on the Fey Web app.">
-                    <img src="images/flow_005_19cf6237/screen_08.jpg" alt="Screen 7 of 10 of the Stock detail flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_005_19cf6237/screen_09.jpg" data-img-alt="Screen 8 of 10 of the Stock detail flow on the Fey Web app.">
-                    <img src="images/flow_005_19cf6237/screen_09.jpg" alt="Screen 8 of 10 of the Stock detail flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_005_19cf6237/screen_10.jpg" data-img-alt="Screen 9 of 10 of the Stock detail flow on the Fey Web app.">
-                    <img src="images/flow_005_19cf6237/screen_10.jpg" alt="Screen 9 of 10 of the Stock detail flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_005_19cf6237/screen_11.jpg" data-img-alt="Screen 10 of 10 of the Stock detail flow on the Fey Web app.">
-                    <img src="images/flow_005_19cf6237/screen_11.jpg" alt="Screen 10 of 10 of the Stock detail flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Analyzing a stock in Fey Web</h2>
-                        <span class="flow-id">0199b8b4</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_006_0199b8b4/screen_02.jpg" data-img-alt="Screen 1 of 6 of the Analyzing a stock flow on the Fey Web app.">
-                    <img src="images/flow_006_0199b8b4/screen_02.jpg" alt="Screen 1 of 6 of the Analyzing a stock flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_006_0199b8b4/screen_03.jpg" data-img-alt="Screen 2 of 6 of the Analyzing a stock flow on the Fey Web app.">
-                    <img src="images/flow_006_0199b8b4/screen_03.jpg" alt="Screen 2 of 6 of the Analyzing a stock flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_006_0199b8b4/screen_04.jpg" data-img-alt="Screen 3 of 6 of the Analyzing a stock flow on the Fey Web app.">
-                    <img src="images/flow_006_0199b8b4/screen_04.jpg" alt="Screen 3 of 6 of the Analyzing a stock flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_006_0199b8b4/screen_05.jpg" data-img-alt="Screen 4 of 6 of the Analyzing a stock flow on the Fey Web app.">
-                    <img src="images/flow_006_0199b8b4/screen_05.jpg" alt="Screen 4 of 6 of the Analyzing a stock flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_006_0199b8b4/screen_06.jpg" data-img-alt="Screen 5 of 6 of the Analyzing a stock flow on the Fey Web app.">
-                    <img src="images/flow_006_0199b8b4/screen_06.jpg" alt="Screen 5 of 6 of the Analyzing a stock flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_006_0199b8b4/screen_07.jpg" data-img-alt="Screen 6 of 6 of the Analyzing a stock flow on the Fey Web app.">
-                    <img src="images/flow_006_0199b8b4/screen_07.jpg" alt="Screen 6 of 6 of the Analyzing a stock flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Comparing stock metrics in Fey Web</h2>
-                        <span class="flow-id">f8df8760</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_007_f8df8760/screen_02.jpg" data-img-alt="Screen 1 of 7 of the Comparing stock metrics flow on the Fey Web app.">
-                    <img src="images/flow_007_f8df8760/screen_02.jpg" alt="Screen 1 of 7 of the Comparing stock metrics flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_007_f8df8760/screen_03.jpg" data-img-alt="Screen 2 of 7 of the Comparing stock metrics flow on the Fey Web app.">
-                    <img src="images/flow_007_f8df8760/screen_03.jpg" alt="Screen 2 of 7 of the Comparing stock metrics flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_007_f8df8760/screen_04.jpg" data-img-alt="Screen 3 of 7 of the Comparing stock metrics flow on the Fey Web app.">
-                    <img src="images/flow_007_f8df8760/screen_04.jpg" alt="Screen 3 of 7 of the Comparing stock metrics flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_007_f8df8760/screen_05.jpg" data-img-alt="Screen 4 of 7 of the Comparing stock metrics flow on the Fey Web app.">
-                    <img src="images/flow_007_f8df8760/screen_05.jpg" alt="Screen 4 of 7 of the Comparing stock metrics flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_007_f8df8760/screen_06.jpg" data-img-alt="Screen 5 of 7 of the Comparing stock metrics flow on the Fey Web app.">
-                    <img src="images/flow_007_f8df8760/screen_06.jpg" alt="Screen 5 of 7 of the Comparing stock metrics flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_007_f8df8760/screen_07.jpg" data-img-alt="Screen 6 of 7 of the Comparing stock metrics flow on the Fey Web app.">
-                    <img src="images/flow_007_f8df8760/screen_07.jpg" alt="Screen 6 of 7 of the Comparing stock metrics flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_007_f8df8760/screen_08.jpg" data-img-alt="Screen 7 of 7 of the Comparing stock metrics flow on the Fey Web app.">
-                    <img src="images/flow_007_f8df8760/screen_08.jpg" alt="Screen 7 of 7 of the Comparing stock metrics flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Sharing a stock in Fey Web</h2>
-                        <span class="flow-id">1f9be44e</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_008_1f9be44e/screen_02.jpg" data-img-alt="Screen 1 of 3 of the Sharing a stock flow on the Fey Web app.">
-                    <img src="images/flow_008_1f9be44e/screen_02.jpg" alt="Screen 1 of 3 of the Sharing a stock flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_008_1f9be44e/screen_03.jpg" data-img-alt="Screen 2 of 3 of the Sharing a stock flow on the Fey Web app.">
-                    <img src="images/flow_008_1f9be44e/screen_03.jpg" alt="Screen 2 of 3 of the Sharing a stock flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_008_1f9be44e/screen_04.jpg" data-img-alt="Screen 3 of 3 of the Sharing a stock flow on the Fey Web app.">
-                    <img src="images/flow_008_1f9be44e/screen_04.jpg" alt="Screen 3 of 3 of the Sharing a stock flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Saving to watchlist in Fey Web</h2>
-                        <span class="flow-id">926fdeb0</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_009_926fdeb0/screen_02.jpg" data-img-alt="Screen 1 of 2 of the Saving to watchlist flow on the Fey Web app.">
-                    <img src="images/flow_009_926fdeb0/screen_02.jpg" alt="Screen 1 of 2 of the Saving to watchlist flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_009_926fdeb0/screen_03.jpg" data-img-alt="Screen 2 of 2 of the Saving to watchlist flow on the Fey Web app.">
-                    <img src="images/flow_009_926fdeb0/screen_03.jpg" alt="Screen 2 of 2 of the Saving to watchlist flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">News summary in Fey Web</h2>
-                        <span class="flow-id">ec003842</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_010_ec003842/screen_02.jpg" data-img-alt="Screen 1 of 4 of the News summary flow on the Fey Web app.">
-                    <img src="images/flow_010_ec003842/screen_02.jpg" alt="Screen 1 of 4 of the News summary flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_010_ec003842/screen_03.jpg" data-img-alt="Screen 2 of 4 of the News summary flow on the Fey Web app.">
-                    <img src="images/flow_010_ec003842/screen_03.jpg" alt="Screen 2 of 4 of the News summary flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_010_ec003842/screen_04.jpg" data-img-alt="Screen 3 of 4 of the News summary flow on the Fey Web app.">
-                    <img src="images/flow_010_ec003842/screen_04.jpg" alt="Screen 3 of 4 of the News summary flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_010_ec003842/screen_05.jpg" data-img-alt="Screen 4 of 4 of the News summary flow on the Fey Web app.">
-                    <img src="images/flow_010_ec003842/screen_05.jpg" alt="Screen 4 of 4 of the News summary flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Analyst estimates in Fey Web</h2>
-                        <span class="flow-id">4d912185</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_011_4d912185/screen_02.jpg" data-img-alt="Screen 1 of 4 of the Analyst estimates flow on the Fey Web app.">
-                    <img src="images/flow_011_4d912185/screen_02.jpg" alt="Screen 1 of 4 of the Analyst estimates flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_011_4d912185/screen_03.jpg" data-img-alt="Screen 2 of 4 of the Analyst estimates flow on the Fey Web app.">
-                    <img src="images/flow_011_4d912185/screen_03.jpg" alt="Screen 2 of 4 of the Analyst estimates flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_011_4d912185/screen_04.jpg" data-img-alt="Screen 3 of 4 of the Analyst estimates flow on the Fey Web app.">
-                    <img src="images/flow_011_4d912185/screen_04.jpg" alt="Screen 3 of 4 of the Analyst estimates flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_011_4d912185/screen_05.jpg" data-img-alt="Screen 4 of 4 of the Analyst estimates flow on the Fey Web app.">
-                    <img src="images/flow_011_4d912185/screen_05.jpg" alt="Screen 4 of 4 of the Analyst estimates flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Filtering analyst estimates in Fey Web</h2>
-                        <span class="flow-id">93de783e</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_012_93de783e/screen_02.jpg" data-img-alt="Screen 1 of 3 of the Filtering analyst estimates flow on the Fey Web app.">
-                    <img src="images/flow_012_93de783e/screen_02.jpg" alt="Screen 1 of 3 of the Filtering analyst estimates flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_012_93de783e/screen_03.jpg" data-img-alt="Screen 2 of 3 of the Filtering analyst estimates flow on the Fey Web app.">
-                    <img src="images/flow_012_93de783e/screen_03.jpg" alt="Screen 2 of 3 of the Filtering analyst estimates flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_012_93de783e/screen_04.jpg" data-img-alt="Screen 3 of 3 of the Filtering analyst estimates flow on the Fey Web app.">
-                    <img src="images/flow_012_93de783e/screen_04.jpg" alt="Screen 3 of 3 of the Filtering analyst estimates flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Stock earnings in Fey Web</h2>
-                        <span class="flow-id">eebe6433</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_013_eebe6433/screen_02.jpg" data-img-alt="Screen 1 of 3 of the Stock earnings flow on the Fey Web app.">
-                    <img src="images/flow_013_eebe6433/screen_02.jpg" alt="Screen 1 of 3 of the Stock earnings flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_013_eebe6433/screen_03.jpg" data-img-alt="Screen 2 of 3 of the Stock earnings flow on the Fey Web app.">
-                    <img src="images/flow_013_eebe6433/screen_03.jpg" alt="Screen 2 of 3 of the Stock earnings flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_013_eebe6433/screen_04.jpg" data-img-alt="Screen 3 of 3 of the Stock earnings flow on the Fey Web app.">
-                    <img src="images/flow_013_eebe6433/screen_04.jpg" alt="Screen 3 of 3 of the Stock earnings flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Financial stats in Fey Web</h2>
-                        <span class="flow-id">1b20b42b</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_014_1b20b42b/screen_02.jpg" data-img-alt="Screen 1 of 6 of the Financial stats flow on the Fey Web app.">
-                    <img src="images/flow_014_1b20b42b/screen_02.jpg" alt="Screen 1 of 6 of the Financial stats flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_014_1b20b42b/screen_03.jpg" data-img-alt="Screen 2 of 6 of the Financial stats flow on the Fey Web app.">
-                    <img src="images/flow_014_1b20b42b/screen_03.jpg" alt="Screen 2 of 6 of the Financial stats flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_014_1b20b42b/screen_04.jpg" data-img-alt="Screen 3 of 6 of the Financial stats flow on the Fey Web app.">
-                    <img src="images/flow_014_1b20b42b/screen_04.jpg" alt="Screen 3 of 6 of the Financial stats flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_014_1b20b42b/screen_05.jpg" data-img-alt="Screen 4 of 6 of the Financial stats flow on the Fey Web app.">
-                    <img src="images/flow_014_1b20b42b/screen_05.jpg" alt="Screen 4 of 6 of the Financial stats flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_014_1b20b42b/screen_06.jpg" data-img-alt="Screen 5 of 6 of the Financial stats flow on the Fey Web app.">
-                    <img src="images/flow_014_1b20b42b/screen_06.jpg" alt="Screen 5 of 6 of the Financial stats flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_014_1b20b42b/screen_07.jpg" data-img-alt="Screen 6 of 6 of the Financial stats flow on the Fey Web app.">
-                    <img src="images/flow_014_1b20b42b/screen_07.jpg" alt="Screen 6 of 6 of the Financial stats flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Comparing financial metrics in Fey Web</h2>
-                        <span class="flow-id">98e7bcd4</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_015_98e7bcd4/screen_02.jpg" data-img-alt="Screen 1 of 5 of the Comparing financial metrics flow on the Fey Web app.">
-                    <img src="images/flow_015_98e7bcd4/screen_02.jpg" alt="Screen 1 of 5 of the Comparing financial metrics flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_015_98e7bcd4/screen_03.jpg" data-img-alt="Screen 2 of 5 of the Comparing financial metrics flow on the Fey Web app.">
-                    <img src="images/flow_015_98e7bcd4/screen_03.jpg" alt="Screen 2 of 5 of the Comparing financial metrics flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_015_98e7bcd4/screen_04.jpg" data-img-alt="Screen 3 of 5 of the Comparing financial metrics flow on the Fey Web app.">
-                    <img src="images/flow_015_98e7bcd4/screen_04.jpg" alt="Screen 3 of 5 of the Comparing financial metrics flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_015_98e7bcd4/screen_05.jpg" data-img-alt="Screen 4 of 5 of the Comparing financial metrics flow on the Fey Web app.">
-                    <img src="images/flow_015_98e7bcd4/screen_05.jpg" alt="Screen 4 of 5 of the Comparing financial metrics flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_015_98e7bcd4/screen_06.jpg" data-img-alt="Screen 5 of 5 of the Comparing financial metrics flow on the Fey Web app.">
-                    <img src="images/flow_015_98e7bcd4/screen_06.jpg" alt="Screen 5 of 5 of the Comparing financial metrics flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Peer analysis in Fey Web</h2>
-                        <span class="flow-id">ee5391c7</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_016_ee5391c7/screen_02.jpg" data-img-alt="Screen 1 of 2 of the Peer analysis flow on the Fey Web app.">
-                    <img src="images/flow_016_ee5391c7/screen_02.jpg" alt="Screen 1 of 2 of the Peer analysis flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_016_ee5391c7/screen_03.jpg" data-img-alt="Screen 2 of 2 of the Peer analysis flow on the Fey Web app.">
-                    <img src="images/flow_016_ee5391c7/screen_03.jpg" alt="Screen 2 of 2 of the Peer analysis flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Editing peers list in Fey Web</h2>
-                        <span class="flow-id">3b57f246</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_017_3b57f246/screen_02.jpg" data-img-alt="Screen 1 of 5 of the Editing peers list flow on the Fey Web app.">
-                    <img src="images/flow_017_3b57f246/screen_02.jpg" alt="Screen 1 of 5 of the Editing peers list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_017_3b57f246/screen_03.jpg" data-img-alt="Screen 2 of 5 of the Editing peers list flow on the Fey Web app.">
-                    <img src="images/flow_017_3b57f246/screen_03.jpg" alt="Screen 2 of 5 of the Editing peers list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_017_3b57f246/screen_04.jpg" data-img-alt="Screen 3 of 5 of the Editing peers list flow on the Fey Web app.">
-                    <img src="images/flow_017_3b57f246/screen_04.jpg" alt="Screen 3 of 5 of the Editing peers list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_017_3b57f246/screen_05.jpg" data-img-alt="Screen 4 of 5 of the Editing peers list flow on the Fey Web app.">
-                    <img src="images/flow_017_3b57f246/screen_05.jpg" alt="Screen 4 of 5 of the Editing peers list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_017_3b57f246/screen_06.jpg" data-img-alt="Screen 5 of 5 of the Editing peers list flow on the Fey Web app.">
-                    <img src="images/flow_017_3b57f246/screen_06.jpg" alt="Screen 5 of 5 of the Editing peers list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Analysis in Fey Web</h2>
-                        <span class="flow-id">d6e1e382</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_018_d6e1e382/screen_02.jpg" data-img-alt="Screen 1 of 5 of the Analysis flow on the Fey Web app.">
-                    <img src="images/flow_018_d6e1e382/screen_02.jpg" alt="Screen 1 of 5 of the Analysis flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_018_d6e1e382/screen_03.jpg" data-img-alt="Screen 2 of 5 of the Analysis flow on the Fey Web app.">
-                    <img src="images/flow_018_d6e1e382/screen_03.jpg" alt="Screen 2 of 5 of the Analysis flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_018_d6e1e382/screen_04.jpg" data-img-alt="Screen 3 of 5 of the Analysis flow on the Fey Web app.">
-                    <img src="images/flow_018_d6e1e382/screen_04.jpg" alt="Screen 3 of 5 of the Analysis flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_018_d6e1e382/screen_05.jpg" data-img-alt="Screen 4 of 5 of the Analysis flow on the Fey Web app.">
-                    <img src="images/flow_018_d6e1e382/screen_05.jpg" alt="Screen 4 of 5 of the Analysis flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_018_d6e1e382/screen_06.jpg" data-img-alt="Screen 5 of 5 of the Analysis flow on the Fey Web app.">
-                    <img src="images/flow_018_d6e1e382/screen_06.jpg" alt="Screen 5 of 5 of the Analysis flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Earnings calendar in Fey Web</h2>
-                        <span class="flow-id">4167ce42</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_019_4167ce42/screen_02.jpg" data-img-alt="Screen 1 of 7 of the Earnings calendar flow on the Fey Web app.">
-                    <img src="images/flow_019_4167ce42/screen_02.jpg" alt="Screen 1 of 7 of the Earnings calendar flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_019_4167ce42/screen_03.jpg" data-img-alt="Screen 2 of 7 of the Earnings calendar flow on the Fey Web app.">
-                    <img src="images/flow_019_4167ce42/screen_03.jpg" alt="Screen 2 of 7 of the Earnings calendar flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_019_4167ce42/screen_04.jpg" data-img-alt="Screen 3 of 7 of the Earnings calendar flow on the Fey Web app.">
-                    <img src="images/flow_019_4167ce42/screen_04.jpg" alt="Screen 3 of 7 of the Earnings calendar flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_019_4167ce42/screen_05.jpg" data-img-alt="Screen 4 of 7 of the Earnings calendar flow on the Fey Web app.">
-                    <img src="images/flow_019_4167ce42/screen_05.jpg" alt="Screen 4 of 7 of the Earnings calendar flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_019_4167ce42/screen_06.jpg" data-img-alt="Screen 5 of 7 of the Earnings calendar flow on the Fey Web app.">
-                    <img src="images/flow_019_4167ce42/screen_06.jpg" alt="Screen 5 of 7 of the Earnings calendar flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_019_4167ce42/screen_07.jpg" data-img-alt="Screen 6 of 7 of the Earnings calendar flow on the Fey Web app.">
-                    <img src="images/flow_019_4167ce42/screen_07.jpg" alt="Screen 6 of 7 of the Earnings calendar flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_019_4167ce42/screen_08.jpg" data-img-alt="Screen 7 of 7 of the Earnings calendar flow on the Fey Web app.">
-                    <img src="images/flow_019_4167ce42/screen_08.jpg" alt="Screen 7 of 7 of the Earnings calendar flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Portfolio in Fey Web</h2>
-                        <span class="flow-id">0aecddf0</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_020_0aecddf0/screen_02.jpg" data-img-alt="Screen 1 of 4 of the Portfolio flow on the Fey Web app.">
-                    <img src="images/flow_020_0aecddf0/screen_02.jpg" alt="Screen 1 of 4 of the Portfolio flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_020_0aecddf0/screen_03.jpg" data-img-alt="Screen 2 of 4 of the Portfolio flow on the Fey Web app.">
-                    <img src="images/flow_020_0aecddf0/screen_03.jpg" alt="Screen 2 of 4 of the Portfolio flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_020_0aecddf0/screen_04.jpg" data-img-alt="Screen 3 of 4 of the Portfolio flow on the Fey Web app.">
-                    <img src="images/flow_020_0aecddf0/screen_04.jpg" alt="Screen 3 of 4 of the Portfolio flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_020_0aecddf0/screen_05.jpg" data-img-alt="Screen 4 of 4 of the Portfolio flow on the Fey Web app.">
-                    <img src="images/flow_020_0aecddf0/screen_05.jpg" alt="Screen 4 of 4 of the Portfolio flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Connect to an app in Fey Web</h2>
-                        <span class="flow-id">b665f678</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_021_b665f678/screen_02.jpg" data-img-alt="Screen 1 of 2 of the Connect to an app flow on the Fey Web app.">
-                    <img src="images/flow_021_b665f678/screen_02.jpg" alt="Screen 1 of 2 of the Connect to an app flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_021_b665f678/screen_03.jpg" data-img-alt="Screen 2 of 2 of the Connect to an app flow on the Fey Web app.">
-                    <img src="images/flow_021_b665f678/screen_03.jpg" alt="Screen 2 of 2 of the Connect to an app flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Moving stocks to a list in Fey Web</h2>
-                        <span class="flow-id">d7297b7d</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_022_d7297b7d/screen_02.jpg" data-img-alt="Screen 1 of 8 of the Moving stocks to a list flow on the Fey Web app.">
-                    <img src="images/flow_022_d7297b7d/screen_02.jpg" alt="Screen 1 of 8 of the Moving stocks to a list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_022_d7297b7d/screen_03.jpg" data-img-alt="Screen 2 of 8 of the Moving stocks to a list flow on the Fey Web app.">
-                    <img src="images/flow_022_d7297b7d/screen_03.jpg" alt="Screen 2 of 8 of the Moving stocks to a list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_022_d7297b7d/screen_04.jpg" data-img-alt="Screen 3 of 8 of the Moving stocks to a list flow on the Fey Web app.">
-                    <img src="images/flow_022_d7297b7d/screen_04.jpg" alt="Screen 3 of 8 of the Moving stocks to a list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_022_d7297b7d/screen_05.jpg" data-img-alt="Screen 4 of 8 of the Moving stocks to a list flow on the Fey Web app.">
-                    <img src="images/flow_022_d7297b7d/screen_05.jpg" alt="Screen 4 of 8 of the Moving stocks to a list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_022_d7297b7d/screen_06.jpg" data-img-alt="Screen 5 of 8 of the Moving stocks to a list flow on the Fey Web app.">
-                    <img src="images/flow_022_d7297b7d/screen_06.jpg" alt="Screen 5 of 8 of the Moving stocks to a list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_022_d7297b7d/screen_07.jpg" data-img-alt="Screen 6 of 8 of the Moving stocks to a list flow on the Fey Web app.">
-                    <img src="images/flow_022_d7297b7d/screen_07.jpg" alt="Screen 6 of 8 of the Moving stocks to a list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_022_d7297b7d/screen_08.jpg" data-img-alt="Screen 7 of 8 of the Moving stocks to a list flow on the Fey Web app.">
-                    <img src="images/flow_022_d7297b7d/screen_08.jpg" alt="Screen 7 of 8 of the Moving stocks to a list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_022_d7297b7d/screen_09.jpg" data-img-alt="Screen 8 of 8 of the Moving stocks to a list flow on the Fey Web app.">
-                    <img src="images/flow_022_d7297b7d/screen_09.jpg" alt="Screen 8 of 8 of the Moving stocks to a list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Deleting a stock in Fey Web</h2>
-                        <span class="flow-id">9d6e811b</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_023_9d6e811b/screen_02.jpg" data-img-alt="Screen 1 of 2 of the Deleting a stock flow on the Fey Web app.">
-                    <img src="images/flow_023_9d6e811b/screen_02.jpg" alt="Screen 1 of 2 of the Deleting a stock flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_023_9d6e811b/screen_03.jpg" data-img-alt="Screen 2 of 2 of the Deleting a stock flow on the Fey Web app.">
-                    <img src="images/flow_023_9d6e811b/screen_03.jpg" alt="Screen 2 of 2 of the Deleting a stock flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Screener in Fey Web</h2>
-                        <span class="flow-id">3ab16109</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_024_3ab16109/screen_02.jpg" data-img-alt="Screen 1 of 2 of the Screener flow on the Fey Web app.">
-                    <img src="images/flow_024_3ab16109/screen_02.jpg" alt="Screen 1 of 2 of the Screener flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_024_3ab16109/screen_03.jpg" data-img-alt="Screen 2 of 2 of the Screener flow on the Fey Web app.">
-                    <img src="images/flow_024_3ab16109/screen_03.jpg" alt="Screen 2 of 2 of the Screener flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Filtering stocks in Fey Web</h2>
-                        <span class="flow-id">9c015988</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_025_9c015988/screen_02.jpg" data-img-alt="Screen 1 of 5 of the Filtering stocks flow on the Fey Web app.">
-                    <img src="images/flow_025_9c015988/screen_02.jpg" alt="Screen 1 of 5 of the Filtering stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_025_9c015988/screen_03.jpg" data-img-alt="Screen 2 of 5 of the Filtering stocks flow on the Fey Web app.">
-                    <img src="images/flow_025_9c015988/screen_03.jpg" alt="Screen 2 of 5 of the Filtering stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_025_9c015988/screen_04.jpg" data-img-alt="Screen 3 of 5 of the Filtering stocks flow on the Fey Web app.">
-                    <img src="images/flow_025_9c015988/screen_04.jpg" alt="Screen 3 of 5 of the Filtering stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_025_9c015988/screen_05.jpg" data-img-alt="Screen 4 of 5 of the Filtering stocks flow on the Fey Web app.">
-                    <img src="images/flow_025_9c015988/screen_05.jpg" alt="Screen 4 of 5 of the Filtering stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_025_9c015988/screen_06.jpg" data-img-alt="Screen 5 of 5 of the Filtering stocks flow on the Fey Web app.">
-                    <img src="images/flow_025_9c015988/screen_06.jpg" alt="Screen 5 of 5 of the Filtering stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Saving a filter as template in Fey Web</h2>
-                        <span class="flow-id">98664574</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_026_98664574/screen_02.jpg" data-img-alt="Screen 1 of 5 of the Saving a filter as template flow on the Fey Web app.">
-                    <img src="images/flow_026_98664574/screen_02.jpg" alt="Screen 1 of 5 of the Saving a filter as template flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_026_98664574/screen_03.jpg" data-img-alt="Screen 2 of 5 of the Saving a filter as template flow on the Fey Web app.">
-                    <img src="images/flow_026_98664574/screen_03.jpg" alt="Screen 2 of 5 of the Saving a filter as template flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_026_98664574/screen_04.jpg" data-img-alt="Screen 3 of 5 of the Saving a filter as template flow on the Fey Web app.">
-                    <img src="images/flow_026_98664574/screen_04.jpg" alt="Screen 3 of 5 of the Saving a filter as template flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_026_98664574/screen_05.jpg" data-img-alt="Screen 4 of 5 of the Saving a filter as template flow on the Fey Web app.">
-                    <img src="images/flow_026_98664574/screen_05.jpg" alt="Screen 4 of 5 of the Saving a filter as template flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_026_98664574/screen_06.jpg" data-img-alt="Screen 5 of 5 of the Saving a filter as template flow on the Fey Web app.">
-                    <img src="images/flow_026_98664574/screen_06.jpg" alt="Screen 5 of 5 of the Saving a filter as template flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Sorting stocks in Fey Web</h2>
-                        <span class="flow-id">97864c36</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_027_97864c36/screen_02.jpg" data-img-alt="Screen 1 of 4 of the Sorting stocks flow on the Fey Web app.">
-                    <img src="images/flow_027_97864c36/screen_02.jpg" alt="Screen 1 of 4 of the Sorting stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_027_97864c36/screen_03.jpg" data-img-alt="Screen 2 of 4 of the Sorting stocks flow on the Fey Web app.">
-                    <img src="images/flow_027_97864c36/screen_03.jpg" alt="Screen 2 of 4 of the Sorting stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_027_97864c36/screen_04.jpg" data-img-alt="Screen 3 of 4 of the Sorting stocks flow on the Fey Web app.">
-                    <img src="images/flow_027_97864c36/screen_04.jpg" alt="Screen 3 of 4 of the Sorting stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_027_97864c36/screen_05.jpg" data-img-alt="Screen 4 of 4 of the Sorting stocks flow on the Fey Web app.">
-                    <img src="images/flow_027_97864c36/screen_05.jpg" alt="Screen 4 of 4 of the Sorting stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Filtering with template in Fey Web</h2>
-                        <span class="flow-id">ece74765</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_028_ece74765/screen_02.jpg" data-img-alt="Screen 1 of 4 of the Filtering with template flow on the Fey Web app.">
-                    <img src="images/flow_028_ece74765/screen_02.jpg" alt="Screen 1 of 4 of the Filtering with template flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_028_ece74765/screen_03.jpg" data-img-alt="Screen 2 of 4 of the Filtering with template flow on the Fey Web app.">
-                    <img src="images/flow_028_ece74765/screen_03.jpg" alt="Screen 2 of 4 of the Filtering with template flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_028_ece74765/screen_04.jpg" data-img-alt="Screen 3 of 4 of the Filtering with template flow on the Fey Web app.">
-                    <img src="images/flow_028_ece74765/screen_04.jpg" alt="Screen 3 of 4 of the Filtering with template flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_028_ece74765/screen_05.jpg" data-img-alt="Screen 4 of 4 of the Filtering with template flow on the Fey Web app.">
-                    <img src="images/flow_028_ece74765/screen_05.jpg" alt="Screen 4 of 4 of the Filtering with template flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Searching Fey in Fey Web</h2>
-                        <span class="flow-id">ca0c870d</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_029_ca0c870d/screen_02.jpg" data-img-alt="Screen 1 of 5 of the Searching Fey flow on the Fey Web app.">
-                    <img src="images/flow_029_ca0c870d/screen_02.jpg" alt="Screen 1 of 5 of the Searching Fey flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_029_ca0c870d/screen_03.jpg" data-img-alt="Screen 2 of 5 of the Searching Fey flow on the Fey Web app.">
-                    <img src="images/flow_029_ca0c870d/screen_03.jpg" alt="Screen 2 of 5 of the Searching Fey flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_029_ca0c870d/screen_04.jpg" data-img-alt="Screen 3 of 5 of the Searching Fey flow on the Fey Web app.">
-                    <img src="images/flow_029_ca0c870d/screen_04.jpg" alt="Screen 3 of 5 of the Searching Fey flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_029_ca0c870d/screen_05.jpg" data-img-alt="Screen 4 of 5 of the Searching Fey flow on the Fey Web app.">
-                    <img src="images/flow_029_ca0c870d/screen_05.jpg" alt="Screen 4 of 5 of the Searching Fey flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_029_ca0c870d/screen_06.jpg" data-img-alt="Screen 5 of 5 of the Searching Fey flow on the Fey Web app.">
-                    <img src="images/flow_029_ca0c870d/screen_06.jpg" alt="Screen 5 of 5 of the Searching Fey flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Watchlist in Fey Web</h2>
-                        <span class="flow-id">4c6dc3c7</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_030_4c6dc3c7/screen_02.jpg" data-img-alt="Screen 1 of 3 of the Watchlist flow on the Fey Web app.">
-                    <img src="images/flow_030_4c6dc3c7/screen_02.jpg" alt="Screen 1 of 3 of the Watchlist flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_030_4c6dc3c7/screen_03.jpg" data-img-alt="Screen 2 of 3 of the Watchlist flow on the Fey Web app.">
-                    <img src="images/flow_030_4c6dc3c7/screen_03.jpg" alt="Screen 2 of 3 of the Watchlist flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_030_4c6dc3c7/screen_04.jpg" data-img-alt="Screen 3 of 3 of the Watchlist flow on the Fey Web app.">
-                    <img src="images/flow_030_4c6dc3c7/screen_04.jpg" alt="Screen 3 of 3 of the Watchlist flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Saving stocks in Fey Web</h2>
-                        <span class="flow-id">ad4512d4</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_031_ad4512d4/screen_02.jpg" data-img-alt="Screen 1 of 5 of the Saving stocks flow on the Fey Web app.">
-                    <img src="images/flow_031_ad4512d4/screen_02.jpg" alt="Screen 1 of 5 of the Saving stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_031_ad4512d4/screen_03.jpg" data-img-alt="Screen 2 of 5 of the Saving stocks flow on the Fey Web app.">
-                    <img src="images/flow_031_ad4512d4/screen_03.jpg" alt="Screen 2 of 5 of the Saving stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_031_ad4512d4/screen_04.jpg" data-img-alt="Screen 3 of 5 of the Saving stocks flow on the Fey Web app.">
-                    <img src="images/flow_031_ad4512d4/screen_04.jpg" alt="Screen 3 of 5 of the Saving stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_031_ad4512d4/screen_05.jpg" data-img-alt="Screen 4 of 5 of the Saving stocks flow on the Fey Web app.">
-                    <img src="images/flow_031_ad4512d4/screen_05.jpg" alt="Screen 4 of 5 of the Saving stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_031_ad4512d4/screen_06.jpg" data-img-alt="Screen 5 of 5 of the Saving stocks flow on the Fey Web app.">
-                    <img src="images/flow_031_ad4512d4/screen_06.jpg" alt="Screen 5 of 5 of the Saving stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Creating a list in Fey Web</h2>
-                        <span class="flow-id">666beba4</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_032_666beba4/screen_02.jpg" data-img-alt="Screen 1 of 4 of the Creating a list flow on the Fey Web app.">
-                    <img src="images/flow_032_666beba4/screen_02.jpg" alt="Screen 1 of 4 of the Creating a list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_032_666beba4/screen_03.jpg" data-img-alt="Screen 2 of 4 of the Creating a list flow on the Fey Web app.">
-                    <img src="images/flow_032_666beba4/screen_03.jpg" alt="Screen 2 of 4 of the Creating a list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_032_666beba4/screen_04.jpg" data-img-alt="Screen 3 of 4 of the Creating a list flow on the Fey Web app.">
-                    <img src="images/flow_032_666beba4/screen_04.jpg" alt="Screen 3 of 4 of the Creating a list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_032_666beba4/screen_05.jpg" data-img-alt="Screen 4 of 4 of the Creating a list flow on the Fey Web app.">
-                    <img src="images/flow_032_666beba4/screen_05.jpg" alt="Screen 4 of 4 of the Creating a list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Deleting a list in Fey Web</h2>
-                        <span class="flow-id">035e8f7d</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_033_035e8f7d/screen_02.jpg" data-img-alt="Screen 1 of 3 of the Deleting a list flow on the Fey Web app.">
-                    <img src="images/flow_033_035e8f7d/screen_02.jpg" alt="Screen 1 of 3 of the Deleting a list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_033_035e8f7d/screen_03.jpg" data-img-alt="Screen 2 of 3 of the Deleting a list flow on the Fey Web app.">
-                    <img src="images/flow_033_035e8f7d/screen_03.jpg" alt="Screen 2 of 3 of the Deleting a list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_033_035e8f7d/screen_04.jpg" data-img-alt="Screen 3 of 3 of the Deleting a list flow on the Fey Web app.">
-                    <img src="images/flow_033_035e8f7d/screen_04.jpg" alt="Screen 3 of 3 of the Deleting a list flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Sorting stocks (watchlist) in Fey Web</h2>
-                        <span class="flow-id">9fb32512</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_034_9fb32512/screen_02.jpg" data-img-alt="Screen 1 of 2 of the Sorting stocks (watchlist) flow on the Fey Web app.">
-                    <img src="images/flow_034_9fb32512/screen_02.jpg" alt="Screen 1 of 2 of the Sorting stocks (watchlist) flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_034_9fb32512/screen_03.jpg" data-img-alt="Screen 2 of 2 of the Sorting stocks (watchlist) flow on the Fey Web app.">
-                    <img src="images/flow_034_9fb32512/screen_03.jpg" alt="Screen 2 of 2 of the Sorting stocks (watchlist) flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Reordering stocks in Fey Web</h2>
-                        <span class="flow-id">8e3bb563</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_035_8e3bb563/screen_02.jpg" data-img-alt="Screen 1 of 3 of the Reordering stocks flow on the Fey Web app.">
-                    <img src="images/flow_035_8e3bb563/screen_02.jpg" alt="Screen 1 of 3 of the Reordering stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_035_8e3bb563/screen_03.jpg" data-img-alt="Screen 2 of 3 of the Reordering stocks flow on the Fey Web app.">
-                    <img src="images/flow_035_8e3bb563/screen_03.jpg" alt="Screen 2 of 3 of the Reordering stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_035_8e3bb563/screen_04.jpg" data-img-alt="Screen 3 of 3 of the Reordering stocks flow on the Fey Web app.">
-                    <img src="images/flow_035_8e3bb563/screen_04.jpg" alt="Screen 3 of 3 of the Reordering stocks flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Settings in Fey Web</h2>
-                        <span class="flow-id">478ce176</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_036_478ce176/screen_02.jpg" data-img-alt="Screen 1 of 2 of the Settings flow on the Fey Web app.">
-                    <img src="images/flow_036_478ce176/screen_02.jpg" alt="Screen 1 of 2 of the Settings flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_036_478ce176/screen_03.jpg" data-img-alt="Screen 2 of 2 of the Settings flow on the Fey Web app.">
-                    <img src="images/flow_036_478ce176/screen_03.jpg" alt="Screen 2 of 2 of the Settings flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Updating an account name in Fey Web</h2>
-                        <span class="flow-id">eac9f8c3</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_037_eac9f8c3/screen_02.jpg" data-img-alt="Screen 1 of 4 of the Updating an account name flow on the Fey Web app.">
-                    <img src="images/flow_037_eac9f8c3/screen_02.jpg" alt="Screen 1 of 4 of the Updating an account name flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_037_eac9f8c3/screen_03.jpg" data-img-alt="Screen 2 of 4 of the Updating an account name flow on the Fey Web app.">
-                    <img src="images/flow_037_eac9f8c3/screen_03.jpg" alt="Screen 2 of 4 of the Updating an account name flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_037_eac9f8c3/screen_04.jpg" data-img-alt="Screen 3 of 4 of the Updating an account name flow on the Fey Web app.">
-                    <img src="images/flow_037_eac9f8c3/screen_04.jpg" alt="Screen 3 of 4 of the Updating an account name flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_037_eac9f8c3/screen_05.jpg" data-img-alt="Screen 4 of 4 of the Updating an account name flow on the Fey Web app.">
-                    <img src="images/flow_037_eac9f8c3/screen_05.jpg" alt="Screen 4 of 4 of the Updating an account name flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Hiding navigation options in Fey Web</h2>
-                        <span class="flow-id">569d21eb</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_038_569d21eb/screen_02.jpg" data-img-alt="Screen 1 of 2 of the Hiding navigation options flow on the Fey Web app.">
-                    <img src="images/flow_038_569d21eb/screen_02.jpg" alt="Screen 1 of 2 of the Hiding navigation options flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_038_569d21eb/screen_03.jpg" data-img-alt="Screen 2 of 2 of the Hiding navigation options flow on the Fey Web app.">
-                    <img src="images/flow_038_569d21eb/screen_03.jpg" alt="Screen 2 of 2 of the Hiding navigation options flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Disabling newsletter in Fey Web</h2>
-                        <span class="flow-id">abe472ae</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_039_abe472ae/screen_02.jpg" data-img-alt="Screen 1 of 2 of the Disabling newsletter flow on the Fey Web app.">
-                    <img src="images/flow_039_abe472ae/screen_02.jpg" alt="Screen 1 of 2 of the Disabling newsletter flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_039_abe472ae/screen_03.jpg" data-img-alt="Screen 2 of 2 of the Disabling newsletter flow on the Fey Web app.">
-                    <img src="images/flow_039_abe472ae/screen_03.jpg" alt="Screen 2 of 2 of the Disabling newsletter flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Searching for shortcuts in Fey Web</h2>
-                        <span class="flow-id">28c4f6c0</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_040_28c4f6c0/screen_02.jpg" data-img-alt="Screen 1 of 3 of the Searching for shortcuts flow on the Fey Web app.">
-                    <img src="images/flow_040_28c4f6c0/screen_02.jpg" alt="Screen 1 of 3 of the Searching for shortcuts flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_040_28c4f6c0/screen_03.jpg" data-img-alt="Screen 2 of 3 of the Searching for shortcuts flow on the Fey Web app.">
-                    <img src="images/flow_040_28c4f6c0/screen_03.jpg" alt="Screen 2 of 3 of the Searching for shortcuts flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_040_28c4f6c0/screen_04.jpg" data-img-alt="Screen 3 of 3 of the Searching for shortcuts flow on the Fey Web app.">
-                    <img src="images/flow_040_28c4f6c0/screen_04.jpg" alt="Screen 3 of 3 of the Searching for shortcuts flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Sending feedback in Fey Web</h2>
-                        <span class="flow-id">4f2bcfd5</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_041_4f2bcfd5/screen_02.jpg" data-img-alt="Screen 1 of 6 of the Sending feedback flow on the Fey Web app.">
-                    <img src="images/flow_041_4f2bcfd5/screen_02.jpg" alt="Screen 1 of 6 of the Sending feedback flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_041_4f2bcfd5/screen_03.jpg" data-img-alt="Screen 2 of 6 of the Sending feedback flow on the Fey Web app.">
-                    <img src="images/flow_041_4f2bcfd5/screen_03.jpg" alt="Screen 2 of 6 of the Sending feedback flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_041_4f2bcfd5/screen_04.jpg" data-img-alt="Screen 3 of 6 of the Sending feedback flow on the Fey Web app.">
-                    <img src="images/flow_041_4f2bcfd5/screen_04.jpg" alt="Screen 3 of 6 of the Sending feedback flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_041_4f2bcfd5/screen_05.jpg" data-img-alt="Screen 4 of 6 of the Sending feedback flow on the Fey Web app.">
-                    <img src="images/flow_041_4f2bcfd5/screen_05.jpg" alt="Screen 4 of 6 of the Sending feedback flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_041_4f2bcfd5/screen_06.jpg" data-img-alt="Screen 5 of 6 of the Sending feedback flow on the Fey Web app.">
-                    <img src="images/flow_041_4f2bcfd5/screen_06.jpg" alt="Screen 5 of 6 of the Sending feedback flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_041_4f2bcfd5/screen_07.jpg" data-img-alt="Screen 6 of 6 of the Sending feedback flow on the Fey Web app.">
-                    <img src="images/flow_041_4f2bcfd5/screen_07.jpg" alt="Screen 6 of 6 of the Sending feedback flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Referring a friend in Fey Web</h2>
-                        <span class="flow-id">756266cc</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_042_756266cc/screen_02.jpg" data-img-alt="Screen 1 of 4 of the Referring a friend flow on the Fey Web app.">
-                    <img src="images/flow_042_756266cc/screen_02.jpg" alt="Screen 1 of 4 of the Referring a friend flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_042_756266cc/screen_03.jpg" data-img-alt="Screen 2 of 4 of the Referring a friend flow on the Fey Web app.">
-                    <img src="images/flow_042_756266cc/screen_03.jpg" alt="Screen 2 of 4 of the Referring a friend flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_042_756266cc/screen_04.jpg" data-img-alt="Screen 3 of 4 of the Referring a friend flow on the Fey Web app.">
-                    <img src="images/flow_042_756266cc/screen_04.jpg" alt="Screen 3 of 4 of the Referring a friend flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_042_756266cc/screen_05.jpg" data-img-alt="Screen 4 of 4 of the Referring a friend flow on the Fey Web app.">
-                    <img src="images/flow_042_756266cc/screen_05.jpg" alt="Screen 4 of 4 of the Referring a friend flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Canceling a subscription in Fey Web</h2>
-                        <span class="flow-id">dedd5d08</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_043_dedd5d08/screen_02.jpg" data-img-alt="Screen 1 of 5 of the Canceling a subscription flow on the Fey Web app.">
-                    <img src="images/flow_043_dedd5d08/screen_02.jpg" alt="Screen 1 of 5 of the Canceling a subscription flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_043_dedd5d08/screen_03.jpg" data-img-alt="Screen 2 of 5 of the Canceling a subscription flow on the Fey Web app.">
-                    <img src="images/flow_043_dedd5d08/screen_03.jpg" alt="Screen 2 of 5 of the Canceling a subscription flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_043_dedd5d08/screen_04.jpg" data-img-alt="Screen 3 of 5 of the Canceling a subscription flow on the Fey Web app.">
-                    <img src="images/flow_043_dedd5d08/screen_04.jpg" alt="Screen 3 of 5 of the Canceling a subscription flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_043_dedd5d08/screen_05.jpg" data-img-alt="Screen 4 of 5 of the Canceling a subscription flow on the Fey Web app.">
-                    <img src="images/flow_043_dedd5d08/screen_05.jpg" alt="Screen 4 of 5 of the Canceling a subscription flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_043_dedd5d08/screen_06.jpg" data-img-alt="Screen 5 of 5 of the Canceling a subscription flow on the Fey Web app.">
-                    <img src="images/flow_043_dedd5d08/screen_06.jpg" alt="Screen 5 of 5 of the Canceling a subscription flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Claiming a referral in Fey Web</h2>
-                        <span class="flow-id">927fb29a</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_044_927fb29a/screen_02.jpg" data-img-alt="Screen 1 of 6 of the Claiming a referral flow on the Fey Web app.">
-                    <img src="images/flow_044_927fb29a/screen_02.jpg" alt="Screen 1 of 6 of the Claiming a referral flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_044_927fb29a/screen_03.jpg" data-img-alt="Screen 2 of 6 of the Claiming a referral flow on the Fey Web app.">
-                    <img src="images/flow_044_927fb29a/screen_03.jpg" alt="Screen 2 of 6 of the Claiming a referral flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_044_927fb29a/screen_04.jpg" data-img-alt="Screen 3 of 6 of the Claiming a referral flow on the Fey Web app.">
-                    <img src="images/flow_044_927fb29a/screen_04.jpg" alt="Screen 3 of 6 of the Claiming a referral flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_044_927fb29a/screen_05.jpg" data-img-alt="Screen 4 of 6 of the Claiming a referral flow on the Fey Web app.">
-                    <img src="images/flow_044_927fb29a/screen_05.jpg" alt="Screen 4 of 6 of the Claiming a referral flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_044_927fb29a/screen_06.jpg" data-img-alt="Screen 5 of 6 of the Claiming a referral flow on the Fey Web app.">
-                    <img src="images/flow_044_927fb29a/screen_06.jpg" alt="Screen 5 of 6 of the Claiming a referral flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_044_927fb29a/screen_07.jpg" data-img-alt="Screen 6 of 6 of the Claiming a referral flow on the Fey Web app.">
-                    <img src="images/flow_044_927fb29a/screen_07.jpg" alt="Screen 6 of 6 of the Claiming a referral flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Logging out in Fey Web</h2>
-                        <span class="flow-id">0fda4a44</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_045_0fda4a44/screen_02.jpg" data-img-alt="Screen 1 of 2 of the Logging out flow on the Fey Web app.">
-                    <img src="images/flow_045_0fda4a44/screen_02.jpg" alt="Screen 1 of 2 of the Logging out flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_045_0fda4a44/screen_03.jpg" data-img-alt="Screen 2 of 2 of the Logging out flow on the Fey Web app.">
-                    <img src="images/flow_045_0fda4a44/screen_03.jpg" alt="Screen 2 of 2 of the Logging out flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Logging in in Fey Web</h2>
-                        <span class="flow-id">de8fa3a9</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_046_de8fa3a9/screen_02.jpg" data-img-alt="Screen 1 of 5 of the Logging in flow on the Fey Web app.">
-                    <img src="images/flow_046_de8fa3a9/screen_02.jpg" alt="Screen 1 of 5 of the Logging in flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_046_de8fa3a9/screen_03.jpg" data-img-alt="Screen 2 of 5 of the Logging in flow on the Fey Web app.">
-                    <img src="images/flow_046_de8fa3a9/screen_03.jpg" alt="Screen 2 of 5 of the Logging in flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_046_de8fa3a9/screen_04.jpg" data-img-alt="Screen 3 of 5 of the Logging in flow on the Fey Web app.">
-                    <img src="images/flow_046_de8fa3a9/screen_04.jpg" alt="Screen 3 of 5 of the Logging in flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_046_de8fa3a9/screen_05.jpg" data-img-alt="Screen 4 of 5 of the Logging in flow on the Fey Web app.">
-                    <img src="images/flow_046_de8fa3a9/screen_05.jpg" alt="Screen 4 of 5 of the Logging in flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_046_de8fa3a9/screen_06.jpg" data-img-alt="Screen 5 of 5 of the Logging in flow on the Fey Web app.">
-                    <img src="images/flow_046_de8fa3a9/screen_06.jpg" alt="Screen 5 of 5 of the Logging in flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Landing page in Fey Web</h2>
-                        <span class="flow-id">69fa2171</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_047_69fa2171/screen_02.jpg" data-img-alt="Screen 1 of 11 of the Landing page flow on the Fey Web app.">
-                    <img src="images/flow_047_69fa2171/screen_02.jpg" alt="Screen 1 of 11 of the Landing page flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_047_69fa2171/screen_03.jpg" data-img-alt="Screen 2 of 11 of the Landing page flow on the Fey Web app.">
-                    <img src="images/flow_047_69fa2171/screen_03.jpg" alt="Screen 2 of 11 of the Landing page flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_047_69fa2171/screen_04.jpg" data-img-alt="Screen 3 of 11 of the Landing page flow on the Fey Web app.">
-                    <img src="images/flow_047_69fa2171/screen_04.jpg" alt="Screen 3 of 11 of the Landing page flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_047_69fa2171/screen_05.jpg" data-img-alt="Screen 4 of 11 of the Landing page flow on the Fey Web app.">
-                    <img src="images/flow_047_69fa2171/screen_05.jpg" alt="Screen 4 of 11 of the Landing page flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_047_69fa2171/screen_06.jpg" data-img-alt="Screen 5 of 11 of the Landing page flow on the Fey Web app.">
-                    <img src="images/flow_047_69fa2171/screen_06.jpg" alt="Screen 5 of 11 of the Landing page flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_047_69fa2171/screen_07.jpg" data-img-alt="Screen 6 of 11 of the Landing page flow on the Fey Web app.">
-                    <img src="images/flow_047_69fa2171/screen_07.jpg" alt="Screen 6 of 11 of the Landing page flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_047_69fa2171/screen_08.jpg" data-img-alt="Screen 7 of 11 of the Landing page flow on the Fey Web app.">
-                    <img src="images/flow_047_69fa2171/screen_08.jpg" alt="Screen 7 of 11 of the Landing page flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_047_69fa2171/screen_09.jpg" data-img-alt="Screen 8 of 11 of the Landing page flow on the Fey Web app.">
-                    <img src="images/flow_047_69fa2171/screen_09.jpg" alt="Screen 8 of 11 of the Landing page flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_047_69fa2171/screen_10.jpg" data-img-alt="Screen 9 of 11 of the Landing page flow on the Fey Web app.">
-                    <img src="images/flow_047_69fa2171/screen_10.jpg" alt="Screen 9 of 11 of the Landing page flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_047_69fa2171/screen_11.jpg" data-img-alt="Screen 10 of 11 of the Landing page flow on the Fey Web app.">
-                    <img src="images/flow_047_69fa2171/screen_11.jpg" alt="Screen 10 of 11 of the Landing page flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_047_69fa2171/screen_12.jpg" data-img-alt="Screen 11 of 11 of the Landing page flow on the Fey Web app.">
-                    <img src="images/flow_047_69fa2171/screen_12.jpg" alt="Screen 11 of 11 of the Landing page flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Insights in Fey Web</h2>
-                        <span class="flow-id">750d1b0b</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_048_750d1b0b/screen_02.jpg" data-img-alt="Screen 1 of 3 of the Insights flow on the Fey Web app.">
-                    <img src="images/flow_048_750d1b0b/screen_02.jpg" alt="Screen 1 of 3 of the Insights flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_048_750d1b0b/screen_03.jpg" data-img-alt="Screen 2 of 3 of the Insights flow on the Fey Web app.">
-                    <img src="images/flow_048_750d1b0b/screen_03.jpg" alt="Screen 2 of 3 of the Insights flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_048_750d1b0b/screen_04.jpg" data-img-alt="Screen 3 of 3 of the Insights flow on the Fey Web app.">
-                    <img src="images/flow_048_750d1b0b/screen_04.jpg" alt="Screen 3 of 3 of the Insights flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Features in Fey Web</h2>
-                        <span class="flow-id">2cd6be73</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_049_2cd6be73/screen_02.jpg" data-img-alt="Screen 1 of 8 of the Features flow on the Fey Web app.">
-                    <img src="images/flow_049_2cd6be73/screen_02.jpg" alt="Screen 1 of 8 of the Features flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_049_2cd6be73/screen_03.jpg" data-img-alt="Screen 2 of 8 of the Features flow on the Fey Web app.">
-                    <img src="images/flow_049_2cd6be73/screen_03.jpg" alt="Screen 2 of 8 of the Features flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_049_2cd6be73/screen_04.jpg" data-img-alt="Screen 3 of 8 of the Features flow on the Fey Web app.">
-                    <img src="images/flow_049_2cd6be73/screen_04.jpg" alt="Screen 3 of 8 of the Features flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_049_2cd6be73/screen_05.jpg" data-img-alt="Screen 4 of 8 of the Features flow on the Fey Web app.">
-                    <img src="images/flow_049_2cd6be73/screen_05.jpg" alt="Screen 4 of 8 of the Features flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_049_2cd6be73/screen_06.jpg" data-img-alt="Screen 5 of 8 of the Features flow on the Fey Web app.">
-                    <img src="images/flow_049_2cd6be73/screen_06.jpg" alt="Screen 5 of 8 of the Features flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_049_2cd6be73/screen_07.jpg" data-img-alt="Screen 6 of 8 of the Features flow on the Fey Web app.">
-                    <img src="images/flow_049_2cd6be73/screen_07.jpg" alt="Screen 6 of 8 of the Features flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_049_2cd6be73/screen_08.jpg" data-img-alt="Screen 7 of 8 of the Features flow on the Fey Web app.">
-                    <img src="images/flow_049_2cd6be73/screen_08.jpg" alt="Screen 7 of 8 of the Features flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_049_2cd6be73/screen_09.jpg" data-img-alt="Screen 8 of 8 of the Features flow on the Fey Web app.">
-                    <img src="images/flow_049_2cd6be73/screen_09.jpg" alt="Screen 8 of 8 of the Features flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Pricing in Fey Web</h2>
-                        <span class="flow-id">ce655b7d</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_050_ce655b7d/screen_02.jpg" data-img-alt="Screen 1 of 6 of the Pricing flow on the Fey Web app.">
-                    <img src="images/flow_050_ce655b7d/screen_02.jpg" alt="Screen 1 of 6 of the Pricing flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_050_ce655b7d/screen_03.jpg" data-img-alt="Screen 2 of 6 of the Pricing flow on the Fey Web app.">
-                    <img src="images/flow_050_ce655b7d/screen_03.jpg" alt="Screen 2 of 6 of the Pricing flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_050_ce655b7d/screen_04.jpg" data-img-alt="Screen 3 of 6 of the Pricing flow on the Fey Web app.">
-                    <img src="images/flow_050_ce655b7d/screen_04.jpg" alt="Screen 3 of 6 of the Pricing flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_050_ce655b7d/screen_05.jpg" data-img-alt="Screen 4 of 6 of the Pricing flow on the Fey Web app.">
-                    <img src="images/flow_050_ce655b7d/screen_05.jpg" alt="Screen 4 of 6 of the Pricing flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_050_ce655b7d/screen_06.jpg" data-img-alt="Screen 5 of 6 of the Pricing flow on the Fey Web app.">
-                    <img src="images/flow_050_ce655b7d/screen_06.jpg" alt="Screen 5 of 6 of the Pricing flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_050_ce655b7d/screen_07.jpg" data-img-alt="Screen 6 of 6 of the Pricing flow on the Fey Web app.">
-                    <img src="images/flow_050_ce655b7d/screen_07.jpg" alt="Screen 6 of 6 of the Pricing flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Updates in Fey Web</h2>
-                        <span class="flow-id">bf933cb1</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_051_bf933cb1/screen_02.jpg" data-img-alt="Screen 1 of 4 of the Updates flow on the Fey Web app.">
-                    <img src="images/flow_051_bf933cb1/screen_02.jpg" alt="Screen 1 of 4 of the Updates flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_051_bf933cb1/screen_03.jpg" data-img-alt="Screen 2 of 4 of the Updates flow on the Fey Web app.">
-                    <img src="images/flow_051_bf933cb1/screen_03.jpg" alt="Screen 2 of 4 of the Updates flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_051_bf933cb1/screen_04.jpg" data-img-alt="Screen 3 of 4 of the Updates flow on the Fey Web app.">
-                    <img src="images/flow_051_bf933cb1/screen_04.jpg" alt="Screen 3 of 4 of the Updates flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_051_bf933cb1/screen_05.jpg" data-img-alt="Screen 4 of 4 of the Updates flow on the Fey Web app.">
-                    <img src="images/flow_051_bf933cb1/screen_05.jpg" alt="Screen 4 of 4 of the Updates flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">App in Fey Web</h2>
-                        <span class="flow-id">ae208b24</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_052_ae208b24/screen_02.jpg" data-img-alt="Screen 1 of 3 of the App flow on the Fey Web app.">
-                    <img src="images/flow_052_ae208b24/screen_02.jpg" alt="Screen 1 of 3 of the App flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_052_ae208b24/screen_03.jpg" data-img-alt="Screen 2 of 3 of the App flow on the Fey Web app.">
-                    <img src="images/flow_052_ae208b24/screen_03.jpg" alt="Screen 2 of 3 of the App flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_052_ae208b24/screen_04.jpg" data-img-alt="Screen 3 of 3 of the App flow on the Fey Web app.">
-                    <img src="images/flow_052_ae208b24/screen_04.jpg" alt="Screen 3 of 3 of the App flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-            <section class="flow-section" id="flow-X">
-                <div class="flow-header">
-                    <div class="flow-title-container">
-                        <h2 class="flow-title">Privacy in Fey Web</h2>
-                        <span class="flow-id">5c384000</span>
-                    </div>
-                </div>
-                <div class="image-grid">
-                    
-                <div class="image-card" data-img-url="images/flow_053_5c384000/screen_02.jpg" data-img-alt="Screen 1 of 3 of the Privacy flow on the Fey Web app.">
-                    <img src="images/flow_053_5c384000/screen_02.jpg" alt="Screen 1 of 3 of the Privacy flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_053_5c384000/screen_03.jpg" data-img-alt="Screen 2 of 3 of the Privacy flow on the Fey Web app.">
-                    <img src="images/flow_053_5c384000/screen_03.jpg" alt="Screen 2 of 3 of the Privacy flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                <div class="image-card" data-img-url="images/flow_053_5c384000/screen_04.jpg" data-img-alt="Screen 3 of 3 of the Privacy flow on the Fey Web app.">
-                    <img src="images/flow_053_5c384000/screen_04.jpg" alt="Screen 3 of 3 of the Privacy flow on the Fey Web app." loading="lazy">
-                </div>
-            
-                </div>
-            </section>
-        
-    </main>
+        <main class="container" id="mainContent">
+            <!-- Flow sections will be generated dynamically -->
+        </main>
+    </div>
     
     <!-- Modal for full-size viewing -->
     <div class="modal" id="imageModal">
@@ -1994,136 +378,275 @@
     </div>
     
     <script>
-        // Navigation sidebar functionality
-        const navSidebar = document.getElementById('navSidebar');
-        const navToggle = document.querySelector('.nav-toggle');
-        const navItems = document.querySelectorAll('.nav-item');
+        // Load and render flows from JSON
+        let flowsData = [];
+        let allImageCards = [];
         
-        function toggleNav() {
-            navSidebar.classList.toggle('active');
-            navToggle.classList.toggle('hidden');
+        // Function to create a slug from full_title for IDs
+        function slugify(text) {
+            return text
+                .toLowerCase()
+                .replace(/[^\w\s-]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/-+/g, '-')
+                .trim();
         }
         
-        // Close nav when clicking a link
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                navSidebar.classList.remove('active');
-                navToggle.classList.remove('hidden');
-            });
-        });
+        // Load JSON and render
+        async function loadFlows() {
+            try {
+                const response = await fetch('flows_catalog.json');
+                flowsData = await response.json();
+                
+                renderSidebar();
+                renderFlows();
+                updateStats();
+                initializeNavigation();
+            } catch (error) {
+                console.error('Error loading flows:', error);
+            }
+        }
         
-        // Highlight active section on scroll
-        const sections = document.querySelectorAll('.flow-section');
-        
-        function updateActiveNav() {
-            let current = '';
+        // Render sidebar navigation
+        function renderSidebar() {
+            const sidebarNav = document.getElementById('sidebarNav');
+            sidebarNav.innerHTML = '';
             
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
+            flowsData.forEach((flow, index) => {
+                const navItem = document.createElement('a');
+                navItem.href = `#${slugify(flow.full_title)}`;
+                navItem.className = 'nav-item';
+                navItem.textContent = flow.full_title;
+                sidebarNav.appendChild(navItem);
             });
+        }
+        
+        // Render flow sections
+        function renderFlows() {
+            const mainContent = document.getElementById('mainContent');
+            mainContent.innerHTML = '';
+            allImageCards = [];
             
+            flowsData.forEach((flow, flowIndex) => {
+                const section = document.createElement('section');
+                section.className = 'flow-section';
+                section.id = slugify(flow.full_title);
+                
+                const flowHeader = document.createElement('div');
+                flowHeader.className = 'flow-header';
+                
+                const titleContainer = document.createElement('div');
+                titleContainer.className = 'flow-title-container';
+                
+                const title = document.createElement('h2');
+                title.className = 'flow-title';
+                title.textContent = flow.full_title;
+                
+                const flowId = document.createElement('span');
+                flowId.className = 'flow-id';
+                flowId.textContent = flow.flow_id.split('-')[0];
+                
+                titleContainer.appendChild(title);
+                titleContainer.appendChild(flowId);
+                flowHeader.appendChild(titleContainer);
+                
+                const imageGrid = document.createElement('div');
+                imageGrid.className = 'image-grid';
+                
+                flow.images.forEach((image, imageIndex) => {
+                    const imageCard = document.createElement('div');
+                    imageCard.className = 'image-card';
+                    imageCard.setAttribute('data-img-url', image.local_path);
+                    imageCard.setAttribute('data-img-alt', image.alt);
+                    
+                    const img = document.createElement('img');
+                    img.src = image.local_path;
+                    img.alt = image.alt;
+                    img.loading = 'lazy';
+                    
+                    imageCard.appendChild(img);
+                    imageGrid.appendChild(imageCard);
+                    
+                    allImageCards.push(imageCard);
+                });
+                
+                section.appendChild(flowHeader);
+                section.appendChild(imageGrid);
+                mainContent.appendChild(section);
+            });
+        }
+        
+        // Update stats
+        function updateStats() {
+            const totalFlows = flowsData.length;
+            const totalScreens = flowsData.reduce((sum, flow) => sum + flow.images.length, 0);
+            
+            const statsElement = document.querySelector('.stats');
+            if (statsElement) {
+                statsElement.innerHTML = `
+                    <span>${totalFlows} flows</span>
+                    <span>·</span>
+                    <span>${totalScreens} screens</span>
+                `;
+            }
+            
+            const sidebarSubtitle = document.querySelector('.sidebar-subtitle');
+            if (sidebarSubtitle) {
+                sidebarSubtitle.textContent = `${totalFlows} flows`;
+            }
+        }
+        
+        // Initialize navigation after rendering
+        function initializeNavigation() {
+            const sidebar = document.getElementById('sidebar');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            function toggleSidebar() {
+                sidebar.classList.toggle('open');
+            }
+            
+            // Make toggleSidebar available globally
+            window.toggleSidebar = toggleSidebar;
+            
+            // Smooth scroll to section
             navItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.getAttribute('href') === '#' + current) {
-                    item.classList.add('active');
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = item.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    
+                    // Close sidebar on mobile
+                    if (window.innerWidth <= 1024) {
+                        sidebar.classList.remove('open');
+                    }
+                });
+            });
+            
+            // Highlight active section on scroll
+            const sections = document.querySelectorAll('.flow-section');
+            
+            function updateActiveNav() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === '#' + current) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateActiveNav);
+            updateActiveNav();
+            
+            // Initialize image modal after rendering
+            initializeImageModal();
+        }
+        
+        // Initialize image modal functionality
+        function initializeImageModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalCounter = document.getElementById('modalCounter');
+            let currentImageIndex = 0;
+            
+            function openModal(index) {
+                currentImageIndex = index;
+                const card = allImageCards[index];
+                const imgUrl = card.getAttribute('data-img-url');
+                const imgAlt = card.getAttribute('data-img-alt');
+                
+                modalImg.src = imgUrl;
+                modalImg.alt = imgAlt;
+                modal.classList.add('active');
+                updateModalNav();
+                updateModalCounter();
+            }
+            
+            function updateModalNav() {
+                const prevBtn = document.querySelector('.modal-nav-prev');
+                const nextBtn = document.querySelector('.modal-nav-next');
+                
+                if (currentImageIndex === 0) {
+                    prevBtn.classList.add('disabled');
+                } else {
+                    prevBtn.classList.remove('disabled');
+                }
+                
+                if (currentImageIndex === allImageCards.length - 1) {
+                    nextBtn.classList.add('disabled');
+                } else {
+                    nextBtn.classList.remove('disabled');
+                }
+            }
+            
+            function updateModalCounter() {
+                modalCounter.textContent = `${currentImageIndex + 1} / ${allImageCards.length}`;
+            }
+            
+            // Navigate to next/previous image
+            function navigateImage(direction) {
+                const newIndex = currentImageIndex + direction;
+                if (newIndex >= 0 && newIndex < allImageCards.length) {
+                    openModal(newIndex);
+                }
+            }
+            
+            // Close modal
+            function closeModal() {
+                modal.classList.remove('active');
+            }
+            
+            // Make functions available globally
+            window.navigateImage = navigateImage;
+            window.closeModal = closeModal;
+            
+            // Add click listeners to image cards
+            allImageCards.forEach((card, index) => {
+                card.addEventListener('click', function() {
+                    openModal(index);
+                });
+            });
+            
+            // Close modal on click outside image
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (!modal.classList.contains('active')) return;
+                
+                switch(e.key) {
+                    case 'Escape':
+                        closeModal();
+                        break;
+                    case 'ArrowLeft':
+                        navigateImage(-1);
+                        break;
+                    case 'ArrowRight':
+                        navigateImage(1);
+                        break;
                 }
             });
         }
         
-        window.addEventListener('scroll', updateActiveNav);
-        updateActiveNav();
-        
-        // Image modal functionality
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const modalCounter = document.getElementById('modalCounter');
-        const imageCards = Array.from(document.querySelectorAll('.image-card'));
-        let currentImageIndex = 0;
-        
-        // Open modal with specific image
-        function openModal(index) {
-            currentImageIndex = index;
-            const card = imageCards[index];
-            const imgUrl = card.getAttribute('data-img-url');
-            const imgAlt = card.getAttribute('data-img-alt');
-            
-            modal.classList.add('active');
-            modalImg.src = imgUrl;
-            modalImg.alt = imgAlt;
-            updateCounter();
-            updateNavButtons();
-        }
-        
-        // Update counter display
-        function updateCounter() {
-            modalCounter.textContent = `${currentImageIndex + 1} / ${imageCards.length}`;
-        }
-        
-        // Update navigation button states
-        function updateNavButtons() {
-            const prevBtn = document.querySelector('.modal-nav-prev');
-            const nextBtn = document.querySelector('.modal-nav-next');
-            
-            if (currentImageIndex === 0) {
-                prevBtn.classList.add('disabled');
-            } else {
-                prevBtn.classList.remove('disabled');
-            }
-            
-            if (currentImageIndex === imageCards.length - 1) {
-                nextBtn.classList.add('disabled');
-            } else {
-                nextBtn.classList.remove('disabled');
-            }
-        }
-        
-        // Navigate to next/previous image
-        function navigateImage(direction) {
-            const newIndex = currentImageIndex + direction;
-            if (newIndex >= 0 && newIndex < imageCards.length) {
-                openModal(newIndex);
-            }
-        }
-        
-        // Close modal
-        function closeModal() {
-            modal.classList.remove('active');
-        }
-        
-        // Add click listeners to image cards
-        imageCards.forEach((card, index) => {
-            card.addEventListener('click', function() {
-                openModal(index);
-            });
-        });
-        
-        // Close modal on click outside image
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-        
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (!modal.classList.contains('active')) return;
-            
-            switch(e.key) {
-                case 'Escape':
-                    closeModal();
-                    break;
-                case 'ArrowLeft':
-                    navigateImage(-1);
-                    break;
-                case 'ArrowRight':
-                    navigateImage(1);
-                    break;
-            }
-        });
+        // Load flows when page loads
+        loadFlows();
     </script>
 </body>
 </html>
